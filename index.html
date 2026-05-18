@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  #google add
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9243072392601630"
-     crossorigin="anonymous"></script>
+
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9243072392601630"
+    crossorigin="anonymous"></script>
+
   <meta charset="UTF-8" />
-  #google add
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Card Market</title>
+
   <style>
     body {
       margin: 0;
@@ -21,283 +26,77 @@
       padding: 10px;
       text-align: center;
       font-weight: bold;
-      font-size: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     .navbar {
       background-color: #0a1a36;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 10px 20px;
       flex-wrap: wrap;
     }
 
-    .navbar-left,
-    .navbar-right {
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar a,
-    .dropbtn {
-      padding: 14px 20px;
+    .navbar a {
       color: white;
       text-decoration: none;
-      background: none;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
+      margin: 0 10px;
     }
 
-    .navbar a:hover,
-    .dropdown:hover .dropbtn {
-      background-color: #14325c;
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #333;
-      min-width: 160px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-      z-index: 1;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .dropdown-content a {
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #444;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* Slider Section (Fixed size) */
-    .slider {
+    .slider, .card-grid {
       display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      background: #102a5a;
-      padding: 10px;
-    }
-
-    .slider::-webkit-scrollbar {
-      display: none;
-    }
-
-    .slider .card {
-      min-width: 120px;
-      max-width: 120px;
-      background: #1c3b75;
-      border: 1px solid #375a9a;
-      margin-right: 10px;
-      padding: 5px;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: transform 0.2s;
-      color: white;
-    }
-
-    .slider .card img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    .slider .card:hover {
-      transform: scale(1.05);
-      border-color: #6a9ad9;
-      background: #2951a3;
-    }
-
-    /* Card Grid */
-    .card-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
       padding: 20px;
-      justify-content: center;
-      background: #0a1a36;
     }
 
-    .card-grid .card {
-      width: 200px;
+    .card {
       background: #1c3b75;
-      border: 1px solid #375a9a;
-      border-radius: 6px;
       padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
       text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s;
     }
 
-    .card-grid .card:hover {
-      transform: scale(1.05);
-      background: #2951a3;
-      border-color: #6a9ad9;
-    }
-
-    .card-grid .card img {
+    img {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
       border-radius: 4px;
-    }
-
-    #searchBox {
-      padding: 6px 10px;
-      border-radius: 4px;
-      border: none;
-      font-size: 14px;
-      margin-left: 10px;
-      outline: none;
-    }
-
-    #searchBtn {
-      background: #ff9900;
-      border: none;
-      padding: 7px 12px;
-      margin-left: 5px;
-      border-radius: 4px;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-    }
-
-    #searchBtn:hover {
-      background: #e68a00;
     }
   </style>
+
 </head>
+
 <body>
 
-  <!-- Banner -->
   <div class="banner">
-    ⚠️ This page / website is under construction. Things may not work yet.
+    ⚠️ This site is under construction
   </div>
 
-  <!-- Navbar -->
   <div class="navbar">
-    <div class="navbar-left">
+    <div>
       <a href="#">Home</a>
-  <div class="navbar-right">
-  <a href="login.html">Login</a>
-  <a href="cart.html">🛒 Cart</a>
-   </div>
-
-      <div class="dropdown">
-        <button class="dropbtn">Category</button>
-        <div class="dropdown-content">
-          <a href="#">Fake Cards</a>
-          <a href="#">Real Cards</a>
-          <a href="#">Football</a>
-          <a href="#">Pokémon</a>
-          <a href="#">More...</a>
-        </div>
-      </div>
-
       <a href="make.html">Make/Sell</a>
-      <input type="text" id="searchBox" placeholder="Search cards..." />
-      <button id="searchBtn">Search</button>
-    </div>
-
-    <div class="navbar-right">
-      <a href="login.html">Login</a>
+      <a href="cart.html">Cart</a>
     </div>
   </div>
 
-  <!-- Slider -->
-  <div class="slider" id="slider">
-    <div class="card" onclick="goToCard('pikachu.html')">
-      <img src="https://placehold.co/150x150" alt="Pikachu" />
+  <h1 style="text-align:center;">Card Market</h1>
+
+  <div class="slider">
+    <div class="card">
+      <img src="https://placehold.co/150x150">
       <p>Pikachu</p>
     </div>
-    <div class="card" onclick="goToCard('arsenal.html')">
-      <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal" />
-      <p>Arsenal</p>
-    </div>
-    <div class="card" onclick="goToCard('messi.html')">
-      <img src="https://placehold.co/150x150" alt="Messi" />
+    <div class="card">
+      <img src="https://placehold.co/150x150">
       <p>Messi</p>
     </div>
   </div>
 
-  <!-- Card Grid -->
-  <div class="card-grid" id="cardGrid">
-    <div class="card" onclick="goToCard('pikachu.html')">
-      <img src="https://placehold.co/150x150" />
-      <p>Pikachu - $10</p>
-    </div>
-    <div class="card" onclick="goToCard('arsenal.html')">
-      <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" />
-      <p>Arsenal Bonus Card - AED 25</p>
-    </div>
-    <div class="card" onclick="goToCard('messi.html')">
-      <img src="https://placehold.co/150x150" />
-      <p>Messi Card - $15</p>
+  <div class="card-grid">
+    <div class="card">
+      <img src="https://placehold.co/150x150">
+      <p>Card 1</p>
     </div>
   </div>
-
-  <!-- Script -->
-  <script>
-    function goToCard(link) {
-      window.location.href = link;
-    }
-
-    const slider = document.getElementById("slider");
-    let scrollAmount = 0;
-    const scrollStep = 1;
-
-    function autoScroll() {
-      scrollAmount += scrollStep;
-      if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
-        scrollAmount = 0;
-      }
-      slider.scrollTo({
-        left: scrollAmount,
-        behavior: "smooth"
-      });
-    }
-    setInterval(autoScroll, 30);
-
-    const searchBtn = document.getElementById('searchBtn');
-    const searchBox = document.getElementById('searchBox');
-    const cardGrid = document.getElementById('cardGrid');
-
-    function searchCards() {
-      const filter = searchBox.value.toLowerCase();
-      const cards = cardGrid.getElementsByClassName('card');
-      for (let card of cards) {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(filter) ? '' : 'none';
-      }
-    }
-
-    searchBtn.addEventListener('click', searchCards);
-    searchBox.addEventListener('keyup', function(event) {
-      if (event.key === 'Enter') {
-        searchCards();
-      }
-    });
-  </script>
 
 </body>
 </html>
