@@ -1,102 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9243072392601630"
-    crossorigin="anonymous"></script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Card Market</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0b2345;
-      color: white;
-    }
-
-    .banner {
-      background-color: #ffc107;
-      color: #000;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .navbar {
-      background-color: #0a1a36;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
-      flex-wrap: wrap;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    .slider, .card-grid {
-      display: flex;
-      gap: 10px;
-      padding: 20px;
-    }
 
     .card {
       background: #1c3b75;
-      padding: 10px;
-      border-radius: 6px;
-      cursor: pointer;
+      width: 220px;
+      border-radius: 10px;
+      padding: 15px;
       text-align: center;
     }
 
-    img {
+    .card img {
       width: 100%;
-      border-radius: 4px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #08172f;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
     }
   </style>
-
 </head>
-
 <body>
 
-  <div class="banner">
-    ⚠️ This site is under construction
+<header>
+  <h1>Card Market</h1>
+  <p>Buy, sell, and explore trading cards.</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="make.html">Make/Sell</a>
+  <a href="cart.html">Cart</a>
+  <a href="login.html">Login</a>
+</nav>
+
+<section class="hero">
+  <h2>Welcome to Card Market</h2>
+  <p>
+    Card Market is a trading card website where collectors can discover Pokémon,
+    football, and custom cards.
+  </p>
+</section>
+
+<section class="cards">
+
+  <div class="card">
+    <img src="https://placehold.co/300x200" alt="Pikachu Card">
+    <h3>Pikachu Card</h3>
+    <p>Rare electric-type Pokémon card.</p>
+    <a href="pikachu.html">View Card</a>
   </div>
 
-  <div class="navbar">
-    <div>
-      <a href="#">Home</a>
-      <a href="make.html">Make/Sell</a>
-      <a href="cart.html">Cart</a>
-    </div>
+  <div class="card">
+    <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card">
+    <h3>Arsenal Bonus Card</h3>
+    <p>Football collectible card for Arsenal fans.</p>
+    <a href="arsenal.html">View Card</a>
   </div>
 
-  <h1 style="text-align:center;">Card Market</h1>
+</section>
 
-  <div class="slider">
-    <div class="card">
-      <img src="https://placehold.co/150x150">
-      <p>Pikachu</p>
-    </div>
-    <div class="card">
-      <img src="https://placehold.co/150x150">
-      <p>Messi</p>
-    </div>
-  </div>
-
-  <div class="card-grid">
-    <div class="card">
-      <img src="https://placehold.co/150x150">
-      <p>Card 1</p>
-    </div>
-  </div>
+<footer>
+  <p>© 2026 Card Market</p>
+</footer>
 
 </body>
 </html>
