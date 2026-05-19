@@ -1,69 +1,222 @@
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9243072392601630"
+    crossorigin="anonymous"></script>
+
+  <title>Card Market</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0b2345;
+      color: white;
+    }
+
+    header {
+      background-color: #08172f;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+
+    header p {
+      color: #cccccc;
+      margin-top: 10px;
+    }
+
+    nav {
+      background-color: #102a5a;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .welcome {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .welcome h2 {
+      font-size: 32px;
+    }
+
+    .welcome p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+      color: #dddddd;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 30px;
+    }
 
     .card {
       background: #1c3b75;
       width: 220px;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 15px;
       text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: #2951a3;
     }
 
     .card img {
       width: 100%;
       border-radius: 8px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin-top: 15px;
+    }
+
+    .card p {
+      color: #dddddd;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #ffc107;
+      color: black;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      background: #ffcf33;
+    }
+
+    .about {
+      background: #08172f;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .about h2 {
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.7;
+      color: #dddddd;
     }
 
     footer {
       background: #08172f;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
       margin-top: 40px;
+      color: #aaaaaa;
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Card Market</h1>
-  <p>Buy, sell, and explore trading cards.</p>
-</header>
+  <header>
+    <h1>Card Market</h1>
+    <p>Buy, sell, and explore trading cards.</p>
+  </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="make.html">Make/Sell</a>
-  <a href="cart.html">Cart</a>
-  <a href="login.html">Login</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="make.html">Make/Sell</a>
+    <a href="cart.html">Cart</a>
+    <a href="login.html">Login</a>
+  </nav>
 
-<section class="hero">
-  <h2>Welcome to Card Market</h2>
-  <p>
-    Card Market is a trading card website where collectors can discover Pokémon,
-    football, and custom cards.
-  </p>
-</section>
+  <section class="welcome">
+    <h2>Welcome to Card Market</h2>
 
-<section class="cards">
+    <p>
+      Card Market is a trading card website where collectors can explore
+      Pokémon cards, football cards, and custom trading cards.
+      Our goal is to help collectors discover rare cards,
+      share collections, and enjoy the trading card community.
+    </p>
+  </section>
 
-  <div class="card">
-    <img src="https://placehold.co/300x200" alt="Pikachu Card">
-    <h3>Pikachu Card</h3>
-    <p>Rare electric-type Pokémon card.</p>
-    <a href="pikachu.html">View Card</a>
-  </div>
+  <section class="cards">
 
-  <div class="card">
-    <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card">
-    <h3>Arsenal Bonus Card</h3>
-    <p>Football collectible card for Arsenal fans.</p>
-    <a href="arsenal.html">View Card</a>
-  </div>
+    <div class="card">
+      <img src="https://placehold.co/300x400" alt="Pikachu Card">
 
-</section>
+      <h3>Pikachu Card</h3>
 
-<footer>
-  <p>© 2026 Card Market</p>
-</footer>
+      <p>
+        Rare electric-type Pokémon card popular among collectors.
+      </p>
+
+      <a href="pikachu.html">View Card</a>
+    </div>
+
+    <div class="card">
+      <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card">
+
+      <h3>Arsenal Bonus Card</h3>
+
+      <p>
+        Football collectible trading card inspired by Arsenal FC.
+      </p>
+
+      <a href="arsenal.html">View Card</a>
+    </div>
+
+  </section>
+
+  <section class="about">
+
+    <h2>About Our Marketplace</h2>
+
+    <p>
+      Card Market was created for trading card fans who enjoy collecting,
+      buying, and sharing cards online. The website supports multiple
+      card categories including Pokémon, football, and custom fan-made cards.
+      New cards and features are added regularly to improve the experience.
+    </p>
+
+  </section>
+
+  <footer>
+    © 2026 Card Market
+  </footer>
 
 </body>
 </html>
