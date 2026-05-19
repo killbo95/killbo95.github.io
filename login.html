@@ -59,6 +59,33 @@
     button:hover {
       background: #ffcf33;
     }
+
+    .error-message {
+      color: #ff6b6b;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+      padding: 10px;
+      background: rgba(255, 107, 107, 0.2);
+      border-radius: 5px;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: #ffc107;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -68,20 +95,63 @@
   
   <form onsubmit="handleLogin(event)">
     <label>Username:</label>
-    <input type="text" id="username" required><br>
+    <input type="text" id="username"><br>
     
     <label>Password:</label>
-    <input type="password" id="password" required><br>
+    <input type="password" id="password"><br>
+    
+    <div class="error-message" id="errorMessage"></div>
     
     <button type="submit">Login</button>
   </form>
+
+  <div class="signup-link">
+    Don't have an account? <a href="signup.html">Sign up here</a>
+  </div>
 </div>
 
 <script>
+  // Initialize with demo users if no users exist
+  function initializeUsers() {
+    if (!localStorage.getItem('users')) {
+      const demoUsers = {
+        users: [
+          { username: 'demo', password: 'demo123' },
+          { username: 'test', password: 'test123' }
+        ]
+      };
+      localStorage.setItem('users', JSON.stringify(demoUsers));
+    }
+  }
+
+  initializeUsers();
+
   function handleLogin(event) {
     event.preventDefault();
     
-    const username = document.getElementById('username').value;
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorMessage = document.getElementById('errorMessage');
+    
+    // Validate inputs
+    if (!username || !password) {
+      errorMessage.textContent = 'No login found please sign in';
+      errorMessage.style.display = 'block';
+      return;
+    }
+    
+    // Get users from localStorage
+    const usersData = JSON.parse(localStorage.getItem('users') || '{"users": []}');
+    const user = usersData.users.find(u => u.username === username && u.password === password);
+    
+    if (!user) {
+      errorMessage.textContent = 'Invalid username or password. Please sign up if you don\'t have an account.';
+      errorMessage.style.display = 'block';
+      return;
+    }
+    
+    // Hide error message and login successful
+    errorMessage.style.display = 'none';
     
     // Save username to localStorage
     localStorage.setItem('loggedInUser', username);
