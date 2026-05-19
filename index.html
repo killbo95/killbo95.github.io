@@ -24,6 +24,7 @@
       background-color: #08172f;
       text-align: center;
       padding: 30px 20px;
+      position: relative;
     }
 
     header h1 {
@@ -34,6 +35,24 @@
     header p {
       color: #cccccc;
       margin-top: 10px;
+    }
+
+    .user-info {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 14px;
+    }
+
+    .user-info a {
+      color: #ffc107;
+      text-decoration: none;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+
+    .user-info a:hover {
+      text-decoration: underline;
     }
 
     nav {
@@ -153,17 +172,21 @@
   <header>
     <h1>Card Market</h1>
     <p>Buy, sell, and explore trading cards.</p>
+    <div class="user-info">
+      <span id="userDisplay"></span>
+      <a id="loginLogout" href="login.html">Login</a>
+    </div>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
     <a href="make.html">Make/Sell</a>
     <a href="cart.html">Cart</a>
-    <a href="login.html">Login</a>
+    <a href="login.html" id="navLogin">Login</a>
   </nav>
 
   <section class="welcome">
-    <h2>Welcome to Card Market</h2>
+    <h2 id="welcomeMessage">Welcome to Card Market</h2>
 
     <p>
       Card Market is a trading card website where collectors can explore
@@ -217,6 +240,43 @@
   <footer>
     © 2026 Card Market
   </footer>
+
+  <script>
+    // Check if user is logged in
+    function checkLogin() {
+      const loggedInUser = localStorage.getItem('loggedInUser');
+      const userDisplay = document.getElementById('userDisplay');
+      const loginLogout = document.getElementById('loginLogout');
+      const navLogin = document.getElementById('navLogin');
+      const welcomeMessage = document.getElementById('welcomeMessage');
+
+      if (loggedInUser) {
+        // User is logged in
+        userDisplay.textContent = 'Welcome, ' + loggedInUser + '!';
+        loginLogout.textContent = 'Logout';
+        loginLogout.onclick = logout;
+        loginLogout.href = '#';
+        navLogin.style.display = 'none';
+        welcomeMessage.textContent = 'Welcome, ' + loggedInUser + '! 👋';
+      } else {
+        // User is not logged in
+        userDisplay.textContent = '';
+        loginLogout.textContent = 'Login';
+        loginLogout.href = 'login.html';
+        loginLogout.onclick = null;
+        navLogin.style.display = 'inline';
+        welcomeMessage.textContent = 'Welcome to Card Market';
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('loggedInUser');
+      window.location.href = 'login.html';
+    }
+
+    // Check login status on page load
+    checkLogin();
+  </script>
 
 </body>
 </html>
