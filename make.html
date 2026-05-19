@@ -1,71 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Make / Sell Card</title>
-  <style>
-    body {
-      background: #0b2345;
-      color: white;
-      font-family: Arial;
-      padding: 20px;
-    }
-    .form-container {
-      background: #1c3b75;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 450px;
-      margin: auto;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px 15px;
-      background: #ff9900;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #e68a00;
-    }
-  </style>
+  <title>Make/Sell</title>
 </head>
-<body>
+<body style="font-family:Arial;background:#0b2345;color:white;">
 
-  <div class="form-container">
-    <h2>Submit Your Card for Approval</h2>
-    <form action="https://formsubmit.co/yehya.salam@amb.sch.ae" method="POST">
-      <input type="text" name="Card Name" placeholder="Card Name" required>
-      <input type="text" name="Price" placeholder="Price" required>
-      <input type="text" name="Image URL" placeholder="Image URL" required>
-      <select name="Type" required>
-        <option value="">Select Category</option>
-        <option value="Football">Football</option>
-        <option value="Pokémon">Pokémon</option>
-        <option value="Real">Real</option>
-        <option value="Fake">Fake</option>
-      </select>
-      <textarea name="Description" placeholder="Description" required></textarea>
+<h1>Make or Sell a Card</h1>
 
-      <!-- Optional: redirect after submit -->
-      <input type="hidden" name="_next" value="thanks.html">
+<p>
+Users can submit custom cards and trading cards for display.
+This marketplace supports Pokémon, football, and fan-made cards.
+</p>
 
-      <button type="submit">Submit Card</button>
-    </form>
-  </div>
+<form>
+  <label>Card Name:</label><br>
+  <input type="text"><br><br>
 
-  <script>
-    const user = localStorage.getItem('loggedInUser');
-    if (!user) {
-      alert("⚠️ You must be logged in to submit a card.");
-      window.location.href = 'login.html';
-    }
-  </script>
+  <label>Description:</label><br>
+  <textarea></textarea><br><br>
+
+  <button type="submit">Submit Card</button>
+</form>
+
 </body>
 </html>
