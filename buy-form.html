@@ -1,24 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Buy Card</title>
+  <style>
+    body {
+      background-color: #0b2345;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      margin: 0;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #1c3b75;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .form-container h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .card-info {
+      background: #2a4c8a;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .card-info p {
+      margin: 5px 0;
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background-color: #ff9900;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e68a00;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .back-link a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body style="font-family:Arial;background:#0b2345;color:white;">
+<body>
 
-<h1>Buy Card</h1>
+  <div class="form-container">
+    <h1>Buy Card</h1>
 
-<form action="thanks.html">
-  <label>Name:</label><br>
-  <input type="text" required><br><br>
+    <div class="card-info">
+      <p>Card: <span id="cardName">Loading...</span></p>
+    </div>
 
-  <label>Email:</label><br>
-  <input type="email" required><br><br>
+    <form action="https://formsubmit.co/yehya.salam@amb.sch.ae" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
 
-  <label>Address:</label><br>
-  <textarea required></textarea><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your email address" required>
 
-  <button type="submit">Complete Purchase</button>
-</form>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+
+      <label for="address">Delivery Address:</label>
+      <textarea id="address" name="address" placeholder="Your delivery address" required></textarea>
+
+      <input type="hidden" name="card_name" id="cardNameField">
+      <input type="hidden" name="_next" value="thanks.html">
+
+      <button type="submit">Complete Purchase</button>
+    </form>
+
+    <div class="back-link">
+      <a href="index.html">← Back to homepage</a>
+    </div>
+  </div>
+
+  <script>
+    // Get card name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const cardName = urlParams.get('card');
+    
+    if (cardName) {
+      // Decode the URL-encoded card name
+      const decodedCardName = decodeURIComponent(cardName);
+      document.getElementById('cardName').textContent = decodedCardName;
+      document.getElementById('cardNameField').value = decodedCardName;
+    } else {
+      document.getElementById('cardName').textContent = 'Unknown Card';
+    }
+  </script>
 
 </body>
 </html>
