@@ -1,81 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
   <title>Arsenal Card</title>
-  <style>
-    body {
-      background: #0b2345;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    .card-container {
-      max-width: 500px;
-      margin: auto;
-      background: #1c3b75;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #000;
-    }
-    img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .btn {
-      padding: 12px 20px;
-      border: none;
-      margin: 10px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      color: white;
-      transition: 0.2s;
-    }
-    .add-cart {
-      background: #28a745;
-    }
-    .add-cart:hover {
-      background: #218838;
-    }
-    .buy-now {
-      background: #ff9900;
-    }
-    .buy-now:hover {
-      background: #e68a00;
-    }
-  </style>
 </head>
-<body>
+<body style="font-family:Arial;background:#0b2345;color:white;text-align:center;">
 
-  <div class="card-container">
-    <h1>Arsenal Bonus Card</h1>
-    <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card" />
-    <p><strong>Type:</strong> Football</p>
-    <p><strong>Price:</strong> AED 25</p>
+<h1>Arsenal Bonus Card</h1>
 
-    <button class="btn add-cart" onclick="addToCart()">Add to Cart</button>
+<img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" width="300">
 
-<script>
-  function addToCart() {
-    const item = {
-      name: "Arsenal Bonus Card",
-      price: "AED 25",
-      image: "https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg"
-    };
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(item);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Arsenal Bonus Card added to cart!");
-  }
-</script>
+<p>
+This football trading card is inspired by Arsenal FC.
+Collectors enjoy football cards because of their rarity and designs.
+</p>
 
-    <a href="buy-form.html?card=Arsenal%20Bonus%20Card">
-      <button class="btn buy-now">Buy Now</button>
-    </a>
-  </div>
+<h2>AED 25</h2>
+
+<a href="buy-form.html">Buy Now</a>
 
 </body>
 </html>
