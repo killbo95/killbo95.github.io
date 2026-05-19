@@ -1,105 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Your Cart</title>
-  <style>
-    body {
-      background: #0b2345;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    .cart-container {
-      max-width: 600px;
-      margin: auto;
-      background: #1c3b75;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #000;
-    }
-
-    .cart-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #2a4c8a;
-      padding-bottom: 10px;
-    }
-
-    .cart-item img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-right: 15px;
-    }
-
-    .cart-item h3 {
-      margin: 0;
-    }
-
-    .remove-btn {
-      margin-left: auto;
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .remove-btn:hover {
-      background-color: #c82333;
-    }
-  </style>
+  <title>Cart</title>
 </head>
-<body>
+<body style="font-family:Arial;background:#0b2345;color:white;">
 
-  <h1>🛒 Your Cart</h1>
-  <div class="cart-container" id="cartItems">
-    <!-- Items will be loaded here -->
-  </div>
+<h1>Your Cart</h1>
 
-  <script>
-    function loadCart() {
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const container = document.getElementById("cartItems");
+<p>No items added yet.</p>
 
-      if (cart.length === 0) {
-        container.innerHTML = "<p>Your cart is empty.</p>";
-        return;
-      }
-
-      cart.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.className = "cart-item";
-        div.innerHTML = `
-          <img src="${item.image}" />
-          <div>
-            <h3>${item.name}</h3>
-            <p>${item.price}</p>
-          </div>
-          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    function removeItem(index) {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.splice(index, 1);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      location.reload();
-    }
-
-    loadCart();
-  </script>
+<a href="index.html">Continue Shopping</a>
 
 </body>
 </html>
