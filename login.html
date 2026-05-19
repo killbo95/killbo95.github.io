@@ -1,79 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login / Register</title>
-  <style>
-    body {
-      background: #0b2345;
-      color: white;
-      font-family: Arial;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      background: #1c3b75;
-      padding: 30px;
-      border-radius: 8px;
-      width: 300px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 4px;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      background: #ff9900;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #e68a00;
-    }
-  </style>
+  <title>Login</title>
 </head>
-<body>
-  <div class="container">
-    <h2>Login / Register</h2>
-    <input type="text" id="username" placeholder="Enter username">
-    <input type="password" id="password" placeholder="Enter password">
-    <button onclick="register()">Register</button>
-    <button onclick="login()">Login</button>
-    <p id="message"></p>
-  </div>
+<body style="font-family:Arial;background:#0b2345;color:white;">
 
-  <script>
-    function register() {
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      if (user && pass) {
-        localStorage.setItem(user, pass);
-        document.getElementById('message').innerText = 'Registered!';
-      } else {
-        alert('Fill all fields');
-      }
-    }
+<h1>Login</h1>
 
-    function login() {
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      const stored = localStorage.getItem(user);
-      if (stored === pass) {
-        localStorage.setItem('loggedInUser', user);
-        window.location.href = 'make.html';
-      } else {
-        document.getElementById('message').innerText = 'Login failed!';
-      }
-    }
-  </script>
+<form>
+  <label>Username:</label><br>
+  <input type="text"><br><br>
+
+  <label>Password:</label><br>
+  <input type="password"><br><br>
+
+  <button type="submit">Login</button>
+</form>
+
 </body>
 </html>
