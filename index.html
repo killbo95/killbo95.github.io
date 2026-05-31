@@ -63,6 +63,17 @@
       }
     }
 
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -113,12 +124,16 @@
       background-color: #102a5a;
       padding: 15px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-size: 18px;
       transition: all 0.3s ease;
       position: relative;
@@ -127,6 +142,115 @@
     nav a:hover {
       color: #ffc107;
       transform: translateY(-3px);
+    }
+
+    .dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-btn {
+      background-color: #1c3b75;
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dropdown-btn:hover {
+      background-color: #2951a3;
+      color: #ffc107;
+      transform: translateY(-3px);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #1c3b75;
+      min-width: 240px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      padding: 12px 0;
+      z-index: 1000;
+      border-radius: 8px;
+      top: 100%;
+      left: 0;
+      animation: slideDown 0.3s ease-out;
+      border: 2px solid #ffc107;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2951a3;
+      color: #ffc107;
+      padding-left: 30px;
+    }
+
+    .dropdown-content a.active {
+      background-color: #ffc107;
+      color: black;
+      font-weight: bold;
+    }
+
+    .dropdown-container:hover .dropdown-content {
+      display: block;
+    }
+
+    .filter-section {
+      background-color: #102a5a;
+      padding: 15px 20px;
+      text-align: center;
+      border-top: 1px solid #1c3b75;
+      border-bottom: 1px solid #1c3b75;
+    }
+
+    .filter-section h3 {
+      margin: 0 0 15px 0;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background-color: #1c3b75;
+      color: white;
+      padding: 8px 16px;
+      border: 2px solid transparent;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .filter-btn:hover {
+      background-color: #2951a3;
+      border-color: #ffc107;
+      color: #ffc107;
+    }
+
+    .filter-btn.active {
+      background-color: #ffc107;
+      color: black;
+      border-color: #ffc107;
     }
 
     .welcome {
@@ -175,6 +299,11 @@
       animation-fill-mode: both;
       border: 2px solid transparent;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      display: none;
+    }
+
+    .card.show {
+      display: block;
     }
 
     .card:nth-child(1) { animation-delay: 0.2s; border-color: #FFD700; }
@@ -226,6 +355,21 @@
       font-size: 18px;
     }
 
+    .card-category {
+      font-size: 12px;
+      color: #ffc107;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-rating {
+      font-size: 14px;
+      margin: 8px 0;
+      letter-spacing: 1px;
+    }
+
     .card-stats {
       display: flex;
       justify-content: space-around;
@@ -267,12 +411,6 @@
       letter-spacing: 1px;
     }
 
-    .card-rating {
-      margin: 8px 0;
-      font-size: 14px;
-      letter-spacing: 2px;
-    }
-
     .card p {
       color: #dddddd;
       font-size: 14px;
@@ -301,6 +439,15 @@
 
     .card a:active {
       transform: translateY(-1px);
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 18px;
+      color: #dddddd;
+      grid-column: 1 / -1;
+      width: 100%;
     }
 
     .about {
@@ -341,14 +488,36 @@
       display: inline-block;
     }
 
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background-color: #0d1f3c;
+      }
+
+      .dropdown-container:hover .dropdown-content {
+        display: block;
+      }
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 28px;
       }
 
       nav a {
-        margin: 0 8px;
         font-size: 14px;
+      }
+
+      .dropdown-btn {
+        font-size: 14px;
+        padding: 10px 15px;
       }
 
       .card {
@@ -373,6 +542,14 @@
       .stat {
         width: 100%;
       }
+
+      .filter-buttons {
+        flex-direction: column;
+      }
+
+      .filter-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -393,7 +570,28 @@
     <a href="make.html">🛠️ Make/Sell</a>
     <a href="cart.html">🛒 Cart</a>
     <a href="login.html" id="navLogin">🔐 Login</a>
+    
+    <div class="dropdown-container">
+      <button class="dropdown-btn">📂 Categories ▼</button>
+      <div class="dropdown-content">
+        <a onclick="filterByCategory('all')">✨ All Cards</a>
+        <a onclick="filterByCategory('pokemon')">⚡ Pokémon Cards</a>
+        <a onclick="filterByCategory('football')">⚽ Football Cards</a>
+        <a onclick="filterByCategory('custom')">🎨 Custom Cards</a>
+      </div>
+    </div>
   </nav>
+
+  <div class="filter-section">
+    <h3>🔍 Filter By:</h3>
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterByStatus('all')">All Items</button>
+      <button class="filter-btn" onclick="filterByStatus('featured')">⭐ Featured</button>
+      <button class="filter-btn" onclick="filterByStatus('hot-deals')">🔥 Hot Deals</button>
+      <button class="filter-btn" onclick="filterByStatus('trending')">📈 Trending</button>
+      <button class="filter-btn" onclick="filterByStatus('new')">✨ New Arrival</button>
+    </div>
+  </div>
 
   <section class="welcome">
     <h2 id="welcomeMessage">Welcome to Card Market</h2>
@@ -418,14 +616,15 @@
     </script>
   </div>
 
-  <section class="cards">
+  <section class="cards" id="cardsContainer">
 
-    <div class="card">
-      <span class="card-badge">⚡ Featured</span>
+    <div class="card show" data-category="pokemon" data-status="featured">
+      <span class="card-badge">⭐ Featured</span>
       <div class="card-icon">⚡</div>
       <img src="https://placehold.co/300x400" alt="Pikachu Card">
 
       <h3>Pikachu Card</h3>
+      <div class="card-category">Pokémon</div>
 
       <div class="card-rating">⭐⭐⭐⭐⭐ (2,345)</div>
 
@@ -445,12 +644,13 @@
       <a href="pikachu.html">View Card →</a>
     </div>
 
-    <div class="card">
-      <span class="card-badge">🔥 Top Seller</span>
+    <div class="card show" data-category="football" data-status="trending">
+      <span class="card-badge">📈 Trending</span>
       <div class="card-icon">⚽</div>
       <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card">
 
       <h3>Arsenal Bonus Card</h3>
+      <div class="card-category">Football</div>
 
       <div class="card-rating">⭐⭐⭐⭐☆ (1,892)</div>
 
@@ -470,12 +670,13 @@
       <a href="arsenal.html">View Card →</a>
     </div>
     
-    <div class="card">
+    <div class="card show" data-category="football" data-status="new">
       <span class="card-badge">✨ New Arrival</span>
       <div class="card-icon">🎯</div>
       <img src="https://placehold.co/300x400" alt="AC Milan">
 
       <h3>AC Milan Club Badge</h3>
+      <div class="card-category">Football</div>
 
       <div class="card-rating">⭐⭐⭐⭐⭐ (892)</div>
 
@@ -493,6 +694,84 @@
       </p>
 
       <a href="Acmilan.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="pokemon" data-status="hot-deals">
+      <span class="card-badge">🔥 Hot Deal</span>
+      <div class="card-icon">⚡</div>
+      <img src="https://placehold.co/300x400" alt="Charizard Card">
+
+      <h3>Charizard Card</h3>
+      <div class="card-category">Pokémon</div>
+
+      <div class="card-rating">⭐⭐⭐⭐⭐ (3,120)</div>
+
+      <div class="card-condition">Near Mint</div>
+
+      <div class="card-price">$129.99</div>
+
+      <div class="card-stats">
+        <span class="stat">🔥 Hot Deal</span>
+        <span class="stat">⚡ Legendary</span>
+      </div>
+
+      <p>
+        Legendary fire-type Pokémon card, one of the most sought after.
+      </p>
+
+      <a href="charizard.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="custom" data-status="new">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">🎨</div>
+      <img src="https://placehold.co/300x400" alt="Custom Card">
+
+      <h3>Custom Artwork Card</h3>
+      <div class="card-category">Custom</div>
+
+      <div class="card-rating">⭐⭐⭐⭐☆ (456)</div>
+
+      <div class="card-condition">Perfect</div>
+
+      <div class="card-price">$24.99</div>
+
+      <div class="card-stats">
+        <span class="stat">🎨 Unique</span>
+        <span class="stat">🖼️ Artist Made</span>
+      </div>
+
+      <p>
+        One-of-a-kind custom artwork card by independent artist.
+      </p>
+
+      <a href="custom.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="football" data-status="hot-deals">
+      <span class="card-badge">🔥 Hot Deal</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Manchester United">
+
+      <h3>Manchester United Legend</h3>
+      <div class="card-category">Football</div>
+
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,100)</div>
+
+      <div class="card-condition">Mint</div>
+
+      <div class="card-price">$44.99</div>
+
+      <div class="card-stats">
+        <span class="stat">🏆 Iconic</span>
+        <span class="stat">🔥 Hot Deal</span>
+      </div>
+
+      <p>
+        Limited edition Manchester United legend trading card.
+      </p>
+
+      <a href="manutd.html">View Card →</a>
     </div>
 
   </section>
@@ -539,6 +818,9 @@
   </footer>
 
   <script>
+    let currentCategory = 'all';
+    let currentStatus = 'all';
+
     // Check if user is logged in
     function checkLogin() {
       const loggedInUser = localStorage.getItem('loggedInUser');
@@ -569,6 +851,73 @@
     function logout() {
       localStorage.removeItem('loggedInUser');
       window.location.href = 'login.html';
+    }
+
+    function filterByCategory(category) {
+      currentCategory = category;
+      applyFilters();
+      updateActiveFilters();
+    }
+
+    function filterByStatus(status) {
+      currentStatus = status;
+      applyFilters();
+      updateActiveFilters();
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardStatus = card.getAttribute('data-status');
+
+        const categoryMatch = currentCategory === 'all' || cardCategory === currentCategory;
+        const statusMatch = currentStatus === 'all' || cardStatus === currentStatus;
+
+        if (categoryMatch && statusMatch) {
+          card.classList.add('show');
+          visibleCount++;
+        } else {
+          card.classList.remove('show');
+        }
+      });
+
+      // Show no results message if needed
+      const container = document.getElementById('cardsContainer');
+      let noResultsMsg = container.querySelector('.no-results');
+      
+      if (visibleCount === 0) {
+        if (!noResultsMsg) {
+          noResultsMsg = document.createElement('div');
+          noResultsMsg.className = 'no-results';
+          noResultsMsg.textContent = 'No cards found matching your filters. Try different selections!';
+          container.appendChild(noResultsMsg);
+        }
+      } else {
+        if (noResultsMsg) {
+          noResultsMsg.remove();
+        }
+      }
+    }
+
+    function updateActiveFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Set active button based on current filter
+      if (currentStatus === 'all') {
+        filterBtns[0].classList.add('active');
+      } else {
+        filterBtns.forEach(btn => {
+          if (btn.textContent.toLowerCase().includes(currentStatus.replace('-', ' '))) {
+            btn.classList.add('active');
+          }
+        });
+      }
     }
 
     // Check login status on page load
