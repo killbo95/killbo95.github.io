@@ -14,6 +14,55 @@
   <title>Card Market</title>
 
   <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -31,11 +80,13 @@
     header h1 {
       margin: 0;
       font-size: 40px;
+      animation: slideInLeft 0.8s ease-out;
     }
 
     header p {
       color: #cccccc;
       margin-top: 10px;
+      animation: slideInLeft 0.8s ease-out 0.2s both;
     }
 
     .user-info {
@@ -50,10 +101,12 @@
       text-decoration: none;
       margin-left: 15px;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
     .user-info a:hover {
       text-decoration: underline;
+      transform: scale(1.1);
     }
 
     nav {
@@ -67,15 +120,19 @@
       text-decoration: none;
       margin: 0 15px;
       font-size: 18px;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
     nav a:hover {
       color: #ffc107;
+      transform: translateY(-3px);
     }
 
     .welcome {
       text-align: center;
       padding: 40px 20px;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
     }
 
     .welcome h2 {
@@ -106,17 +163,49 @@
     }
 
     .card {
-      background: #1c3b75;
+      background: linear-gradient(135deg, #1c3b75 0%, #2951a3 100%);
       width: 220px;
       border-radius: 12px;
       padding: 15px;
       text-align: center;
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+      animation-fill-mode: both;
+      border: 2px solid transparent;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
+    .card:nth-child(1) { animation-delay: 0.2s; border-color: #FFD700; }
+    .card:nth-child(2) { animation-delay: 0.4s; border-color: #DC143C; }
+    .card:nth-child(3) { animation-delay: 0.6s; border-color: #FF0000; }
+
     .card:hover {
-      transform: scale(1.05);
-      background: #2951a3;
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255, 193, 7, 0.4);
+      border-color: #ffff00;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: -8px;
+      right: 10px;
+      background: linear-gradient(135deg, #ff6b6b, #ffc107);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      animation: bounce 1s ease-in-out infinite;
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+      z-index: 10;
+    }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      animation: pulse 2s ease-in-out infinite;
     }
 
     .card img {
@@ -124,35 +213,101 @@
       border-radius: 8px;
       height: 250px;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
     }
 
     .card h3 {
       margin-top: 15px;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card-stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 12px 0;
+      padding: 10px;
+      background: rgba(255, 193, 7, 0.1);
+      border-radius: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stat {
+      font-size: 12px;
+      padding: 4px 8px;
+      background: rgba(255, 193, 7, 0.2);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .stat {
+      background: rgba(255, 193, 7, 0.4);
+      transform: scale(1.1);
+    }
+
+    .card-price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffc107;
+      margin: 10px 0;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .card-condition {
+      font-size: 12px;
+      color: #90EE90;
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-rating {
+      margin: 8px 0;
+      font-size: 14px;
+      letter-spacing: 2px;
     }
 
     .card p {
       color: #dddddd;
+      font-size: 14px;
+      line-height: 1.4;
     }
 
     .card a {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 12px;
       padding: 10px 15px;
-      background: #ffc107;
+      background: linear-gradient(135deg, #ffc107, #ffed4e);
       color: black;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
     }
 
     .card a:hover {
-      background: #ffcf33;
+      background: linear-gradient(135deg, #ffed4e, #ffc107);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(255, 193, 7, 0.5);
+    }
+
+    .card a:active {
+      transform: translateY(-1px);
     }
 
     .about {
       background: #08172f;
       padding: 40px 20px;
       text-align: center;
+      animation: fadeInUp 1s ease-out 0.8s both;
     }
 
     .about h2 {
@@ -177,10 +332,13 @@
     footer a {
       color: #ffc107;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     footer a:hover {
       text-decoration: underline;
+      transform: scale(1.1);
+      display: inline-block;
     }
 
     @media (max-width: 600px) {
@@ -207,6 +365,14 @@
         position: static;
         margin-top: 20px;
       }
+
+      .card-stats {
+        flex-direction: column;
+      }
+
+      .stat {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -214,7 +380,7 @@
 <body>
 
   <header>
-    <h1>Card Market</h1>
+    <h1>🎴 Card Market</h1>
     <p>Buy, sell, and explore trading cards.</p>
     <div class="user-info">
       <span id="userDisplay"></span>
@@ -223,10 +389,10 @@
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="make.html">Make/Sell</a>
-    <a href="cart.html">Cart</a>
-    <a href="login.html" id="navLogin">Login</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="make.html">🛠️ Make/Sell</a>
+    <a href="cart.html">🛒 Cart</a>
+    <a href="login.html" id="navLogin">🔐 Login</a>
   </nav>
 
   <section class="welcome">
@@ -255,39 +421,78 @@
   <section class="cards">
 
     <div class="card">
+      <span class="card-badge">⚡ Featured</span>
+      <div class="card-icon">⚡</div>
       <img src="https://placehold.co/300x400" alt="Pikachu Card">
 
       <h3>Pikachu Card</h3>
+
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,345)</div>
+
+      <div class="card-condition">Mint Condition</div>
+
+      <div class="card-price">$49.99</div>
+
+      <div class="card-stats">
+        <span class="stat">✨ Rare</span>
+        <span class="stat">🔥 Hot Deal</span>
+      </div>
 
       <p>
         Rare electric-type Pokémon card popular among collectors.
       </p>
 
-      <a href="pikachu.html">View Card</a>
+      <a href="pikachu.html">View Card →</a>
     </div>
 
     <div class="card">
+      <span class="card-badge">🔥 Top Seller</span>
+      <div class="card-icon">⚽</div>
       <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card">
 
       <h3>Arsenal Bonus Card</h3>
+
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,892)</div>
+
+      <div class="card-condition">Near Mint</div>
+
+      <div class="card-price">$34.99</div>
+
+      <div class="card-stats">
+        <span class="stat">🏆 Collectible</span>
+        <span class="stat">📈 Trending</span>
+      </div>
 
       <p>
         Football collectible trading card inspired by Arsenal FC.
       </p>
 
-      <a href="arsenal.html">View Card</a>
+      <a href="arsenal.html">View Card →</a>
     </div>
     
     <div class="card">
+      <span class="card-badge">✨ New Arrival</span>
+      <div class="card-icon">🎯</div>
       <img src="https://placehold.co/300x400" alt="AC Milan">
 
       <h3>AC Milan Club Badge</h3>
 
+      <div class="card-rating">⭐⭐⭐⭐⭐ (892)</div>
+
+      <div class="card-condition">Excellent</div>
+
+      <div class="card-price">$39.99</div>
+
+      <div class="card-stats">
+        <span class="stat">💎 Premium</span>
+        <span class="stat">🎁 Limited Edition</span>
+      </div>
+
       <p>
-        Football collectible trading club bage by AC Milan.
+        Football collectible trading club badge by AC Milan.
       </p>
 
-      <a href="Acmilan.html">View Card</a>
+      <a href="Acmilan.html">View Card →</a>
     </div>
 
   </section>
@@ -306,7 +511,7 @@
 
   <section class="about">
 
-    <h2>About Our Marketplace</h2>
+    <h2>🌟 About Our Marketplace</h2>
 
     <p>
       Card Market was created for trading card fans who enjoy collecting,
