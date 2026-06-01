@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fabian Schar Panini Adrenalyn Football Card - Buy now on Card Market">
+  <meta name="description" content="Buy, sell, and explore trading cards including Pokémon, football, and custom trading cards on Card Market.">
 
   <!-- Google AdSense -->
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9243072392601630"
     crossorigin="anonymous"></script>
 
-  <title>Fabian Schar - Panini Adrenalyn Card | Card Market</title>
+  <title>Card Market</title>
 
   <style>
     @keyframes fadeInUp {
@@ -22,6 +22,15 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
       }
     }
 
@@ -36,13 +45,37 @@
       }
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background-color: #0b2345;
       color: white;
@@ -91,212 +124,150 @@
       background-color: #102a5a;
       padding: 15px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-size: 18px;
       transition: all 0.3s ease;
+      position: relative;
     }
 
     nav a:hover {
       color: #ffc107;
+      transform: translateY(-3px);
     }
 
-    .breadcrumb {
+    .dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-btn {
+      background-color: #1c3b75;
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dropdown-btn:hover {
+      background-color: #2951a3;
+      color: #ffc107;
+      transform: translateY(-3px);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #1c3b75;
+      min-width: 240px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      padding: 12px 0;
+      z-index: 1000;
+      border-radius: 8px;
+      top: 100%;
+      left: 0;
+      animation: slideDown 0.3s ease-out;
+      border: 2px solid #ffc107;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2951a3;
+      color: #ffc107;
+      padding-left: 30px;
+    }
+
+    .dropdown-content a.active {
+      background-color: #ffc107;
+      color: black;
+      font-weight: bold;
+    }
+
+    .dropdown-container:hover .dropdown-content {
+      display: block;
+    }
+
+    .filter-section {
       background-color: #102a5a;
       padding: 15px 20px;
-      font-size: 14px;
+      text-align: center;
+      border-top: 1px solid #1c3b75;
       border-bottom: 1px solid #1c3b75;
     }
 
-    .breadcrumb a {
-      color: #ffc107;
-      text-decoration: none;
-      cursor: pointer;
+    .filter-section h3 {
+      margin: 0 0 15px 0;
     }
 
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .player-container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .player-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .card-image {
-      background: linear-gradient(135deg, #1c3b75 0%, #2951a3 100%);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      border: 3px solid #ffc107;
-    }
-
-    .card-image img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 8px;
-      height: auto;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    .player-info {
-      padding: 20px;
-    }
-
-    .player-info h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      color: #ffc107;
-    }
-
-    .player-position {
-      font-size: 18px;
-      color: #90EE90;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .player-stats {
-      background-color: #1c3b75;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      border-left: 4px solid #ffc107;
-    }
-
-    .stat-row {
+    .filter-buttons {
       display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #2951a3;
-    }
-
-    .stat-row:last-child {
-      border-bottom: none;
-    }
-
-    .stat-label {
-      font-weight: bold;
-      color: #ffc107;
-    }
-
-    .stat-value {
-      color: #dddddd;
-    }
-
-    .pricing-section {
-      background-color: #1c3b75;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      border: 2px solid #ffc107;
-    }
-
-    .price {
-      font-size: 32px;
-      font-weight: bold;
-      color: #ffc107;
-      margin: 10px 0;
-    }
-
-    .condition {
-      color: #90EE90;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
-
-    .rating {
-      margin-bottom: 15px;
-      font-size: 16px;
-    }
-
-    .btn-group {
-      display: flex;
+      justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      font-weight: bold;
+    .filter-btn {
+      background-color: #1c3b75;
+      color: white;
+      padding: 8px 16px;
+      border: 2px solid transparent;
+      border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: bold;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #ffc107, #ffed4e);
-      color: black;
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #ffed4e, #ffc107);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(255, 193, 7, 0.5);
-    }
-
-    .btn-secondary {
+    .filter-btn:hover {
       background-color: #2951a3;
-      color: white;
-      flex: 1;
-      min-width: 150px;
-      border: 2px solid #ffc107;
+      border-color: #ffc107;
+      color: #ffc107;
     }
 
-    .btn-secondary:hover {
-      background-color: #1c3b75;
-      transform: translateY(-3px);
+    .filter-btn.active {
+      background-color: #ffc107;
+      color: black;
+      border-color: #ffc107;
     }
 
-    .description {
-      background-color: #1c3b75;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 20px;
+    .welcome {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .welcome h2 {
+      font-size: 32px;
+    }
+
+    .welcome p {
+      max-width: 700px;
+      margin: auto;
       line-height: 1.6;
       color: #dddddd;
-    }
-
-    .description h3 {
-      color: #ffc107;
-      margin-bottom: 10px;
-    }
-
-    .badges {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      background: linear-gradient(135deg, #ff6b6b, #ffc107);
-      color: white;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
     }
 
     .ad-container {
@@ -307,60 +278,220 @@
       border-radius: 8px;
     }
 
-    .related-cards {
-      background-color: #102a5a;
-      padding: 30px 20px;
-      margin-top: 40px;
-      border-top: 2px solid #1c3b75;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 30px;
     }
 
-    .related-cards h3 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #ffc107;
-    }
-
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .related-card {
+    .card {
       background: linear-gradient(135deg, #1c3b75 0%, #2951a3 100%);
-      border-radius: 8px;
+      width: 220px;
+      border-radius: 12px;
       padding: 15px;
       text-align: center;
-      cursor: pointer;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+      animation-fill-mode: both;
       border: 2px solid transparent;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      display: none;
     }
 
-    .related-card:hover {
-      transform: translateY(-10px);
-      border-color: #ffc107;
-      box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+    .card.show {
+      display: block;
     }
 
-    .related-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
+    .card:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255, 193, 7, 0.4);
+      border-color: #ffff00;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: -8px;
+      right: 10px;
+      background: linear-gradient(135deg, #ff6b6b, #ffc107);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      animation: bounce 1s ease-in-out infinite;
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+      z-index: 10;
+    }
+
+    .card-badge.out-of-stock {
+      background: linear-gradient(135deg, #888, #555);
+      animation: none;
+    }
+
+    .card-icon {
+      font-size: 28px;
       margin-bottom: 10px;
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    .related-card h4 {
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      filter: grayscale(0%);
+    }
+
+    .card.out-of-stock img {
+      filter: grayscale(100%);
+      opacity: 0.6;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .card h3 {
+      margin-top: 15px;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card-category {
+      font-size: 12px;
       color: #ffc107;
-      margin-bottom: 5px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .related-card p {
+    .card-rating {
+      font-size: 14px;
+      margin: 8px 0;
+      letter-spacing: 1px;
+    }
+
+    .card-stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 12px 0;
+      padding: 10px;
+      background: rgba(255, 193, 7, 0.1);
+      border-radius: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stat {
+      font-size: 12px;
+      padding: 4px 8px;
+      background: rgba(255, 193, 7, 0.2);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .stat {
+      background: rgba(255, 193, 7, 0.4);
+      transform: scale(1.1);
+    }
+
+    .card-price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffc107;
+      margin: 10px 0;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .card-condition {
+      font-size: 12px;
+      color: #90EE90;
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card p {
       color: #dddddd;
       font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 15px;
+      background: linear-gradient(135deg, #ffc107, #ffed4e);
+      color: black;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+    }
+
+    .card.out-of-stock a {
+      background: linear-gradient(135deg, #999, #666);
+      cursor: not-allowed;
+    }
+
+    .card a:hover {
+      background: linear-gradient(135deg, #ffed4e, #ffc107);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(255, 193, 7, 0.5);
+    }
+
+    .card.out-of-stock a:hover {
+      transform: none;
+      box-shadow: 0 4px 12px rgba(100, 100, 100, 0.3);
+    }
+
+    .card a:active {
+      transform: translateY(-1px);
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 18px;
+      color: #dddddd;
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .card-count {
+      text-align: center;
+      padding: 20px;
+      background-color: #102a5a;
+      color: #ffc107;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about {
+      background: #08172f;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeInUp 1s ease-out 0.8s both;
+    }
+
+    .about h2 {
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.7;
+      color: #dddddd;
     }
 
     footer {
@@ -374,36 +505,76 @@
     footer a {
       color: #ffc107;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     footer a:hover {
       text-decoration: underline;
+      transform: scale(1.1);
+      display: inline-block;
     }
 
     @media (max-width: 768px) {
-      .player-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+      nav {
+        flex-direction: column;
+        gap: 10px;
       }
 
+      .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background-color: #0d1f3c;
+      }
+
+      .dropdown-container:hover .dropdown-content {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
       header h1 {
         font-size: 28px;
       }
 
-      .player-info h2 {
-        font-size: 28px;
+      nav a {
+        font-size: 14px;
       }
 
-      .btn-group {
+      .dropdown-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .ad-container {
+        margin: 20px 0;
+        padding: 15px;
+      }
+
+      .user-info {
+        position: static;
+        margin-top: 20px;
+      }
+
+      .card-stats {
         flex-direction: column;
       }
 
-      .btn {
+      .stat {
         width: 100%;
       }
 
-      .related-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      .filter-buttons {
+        flex-direction: column;
+      }
+
+      .filter-btn {
+        width: 100%;
       }
     }
   </style>
@@ -424,147 +595,427 @@
     <a href="index.html">🏠 Home</a>
     <a href="make.html">🛠️ Make/Sell</a>
     <a href="cart.html">🛒 Cart</a>
+    <a href="login.html" id="navLogin">🔐 Login</a>
+    
+    <div class="dropdown-container">
+      <button class="dropdown-btn">📂 Categories ▼</button>
+      <div class="dropdown-content">
+        <a onclick="filterByCategory('all')">✨ All Cards</a>
+        <a onclick="filterByCategory('pokemon')">⚡ Pokémon Cards</a>
+        <a onclick="filterByCategory('football')">⚽ Football Cards</a>
+        <a onclick="filterByCategory('panini-adrenalyn')">🎯 Panini Adrenalyn</a>
+        <a onclick="filterByCategory('custom')">🎨 Custom Cards</a>
+      </div>
+    </div>
   </nav>
 
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> / <a href="index.html">Panini Adrenalyn</a> / <span>Fabian Schar</span>
-  </div>
-
-  <div class="player-container">
-    <div class="player-grid">
-      <!-- Card Image -->
-      <div class="card-image">
-        <img src="https://placehold.co/300x400" alt="Fabian Schar Panini Adrenalyn Card">
-        <p style="margin-top: 15px; color: #ffc107; font-weight: bold;">Panini Adrenalyn</p>
-      </div>
-
-      <!-- Player Info -->
-      <div class="player-info">
-        <h2>Fabian Schar</h2>
-        <div class="player-position">🛡️ Defender (Center Back)</div>
-
-        <div class="badges">
-          <span class="badge">🔥 Hot Deal</span>
-          <span class="badge">⚡ Defender</span>
-          <span class="badge">🏆 Experienced</span>
-        </div>
-
-        <!-- Stats -->
-        <div class="player-stats">
-          <div class="stat-row">
-            <span class="stat-label">Team:</span>
-            <span class="stat-value">Newcastle United</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Nationality:</span>
-            <span class="stat-value">Switzerland 🇨🇭</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Jersey Number:</span>
-            <span class="stat-value">#5</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Defense:</span>
-            <span class="stat-value">⭐⭐⭐⭐⭐ 9/10</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Positioning:</span>
-            <span class="stat-value">⭐⭐⭐⭐⭐ 9/10</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Leadership:</span>
-            <span class="stat-value">⭐⭐⭐⭐⭐ 9/10</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Card Rarity:</span>
-            <span class="stat-value">✨ Standard</span>
-          </div>
-        </div>
-
-        <!-- Pricing -->
-        <div class="pricing-section">
-          <div class="rating">⭐⭐⭐⭐⭐ 4.5/5 (1,250 reviews)</div>
-          <div class="condition">✅ Excellent Condition</div>
-          <div class="price">$35.99</div>
-          <p style="color: #90EE90; font-size: 14px; margin-bottom: 15px;">✅ In Stock - 9 available</p>
-
-          <div class="btn-group">
-            <button class="btn btn-primary">🛒 Add to Cart</button>
-            <button class="btn btn-secondary">❤️ Wishlist</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Description -->
-    <div class="description">
-      <h3>📝 Card Description</h3>
-      <p>
-        Fabian Schar is an experienced Swiss center back currently playing for Newcastle United. Known for his excellent positioning, 
-        strong defensive abilities, and leadership qualities, he is a key pillar of Newcastle's defense. This Panini Adrenalyn card 
-        in excellent condition captures his commanding defensive presence. Perfect for collectors who appreciate experienced defenders 
-        and Swiss international players.
-      </p>
-      <br>
-      <p>
-        <strong>Why collect this card?</strong>
-        <ul style="margin-left: 20px; margin-top: 10px;">
-          <li>✨ Part of the official Panini Adrenalyn collection</li>
-          <li>🏆 Key player at Newcastle United</li>
-          <li>📈 Experienced international defender</li>
-          <li>🎯 Great for experienced defender collectors</li>
-        </ul>
-      </p>
-    </div>
-
-    <!-- Ad Space -->
-    <div class="ad-container">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-9243072392601630"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-
-    <!-- Related Cards -->
-    <div class="related-cards">
-      <h3>🔍 Related Cards You Might Like</h3>
-      <div class="related-grid">
-        <div class="related-card" onclick="window.location.href='panini-vestergaard.html'">
-          <img src="https://placehold.co/200x250" alt="Jannik Vestergaard">
-          <h4>Jannik Vestergaard</h4>
-          <p>Defender • Denmark</p>
-          <p style="color: #ffc107; font-weight: bold;">$38.99</p>
-        </div>
-
-        <div class="related-card" onclick="window.location.href='panini-araujo.html'">
-          <img src="https://placehold.co/200x250" alt="Maxi Araujo">
-          <h4>Maxi Araujo</h4>
-          <p>Defender • Uruguay</p>
-          <p style="color: #ffc107; font-weight: bold;">$32.99</p>
-        </div>
-
-        <div class="related-card" onclick="window.location.href='panini-chukwueze.html'">
-          <img src="https://placehold.co/200x250" alt="Samuel Chukwueze">
-          <h4>Samuel Chukwueze</h4>
-          <p>Winger • Nigeria</p>
-          <p style="color: #ffc107; font-weight: bold;">$41.99</p>
-        </div>
-
-        <div class="related-card" onclick="window.location.href='panini-kdb.html'">
-          <img src="https://placehold.co/200x250" alt="Kevin De Bruyne">
-          <h4>Kevin De Bruyne</h4>
-          <p>Midfielder • Belgium</p>
-          <p style="color: #ffc107; font-weight: bold;">$74.99</p>
-        </div>
-      </div>
+  <div class="filter-section">
+    <h3>🔍 Filter By:</h3>
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterByStatus('all')">All Items</button>
+      <button class="filter-btn" onclick="filterByStatus('featured')">⭐ Featured</button>
+      <button class="filter-btn" onclick="filterByStatus('hot-deals')">🔥 Hot Deals</button>
+      <button class="filter-btn" onclick="filterByStatus('trending')">📈 Trending</button>
+      <button class="filter-btn" onclick="filterByStatus('new')">✨ New Arrival</button>
+      <button class="filter-btn" onclick="filterByAvailability('in-stock')">✅ In Stock</button>
     </div>
   </div>
 
-  <!-- Ad Space 2 -->
+  <section class="welcome">
+    <h2 id="welcomeMessage">Welcome to Card Market</h2>
+
+    <p>
+      Card Market is a trading card website where collectors can explore
+      Pokémon cards, football cards, and custom trading cards.
+      Our goal is to help collectors discover rare cards,
+      share collections, and enjoy the trading card community.
+    </p>
+  </section>
+
+  <!-- Ad Space 1 - Between Welcome and Cards -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9243072392601630"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="card-count" id="cardCount"></div>
+
+  <section class="cards" id="cardsContainer">
+
+    <!-- Original Cards -->
+    <div class="card show" data-category="pokemon" data-status="featured" data-availability="in-stock">
+      <span class="card-badge">⭐ Featured</span>
+      <div class="card-icon">⚡</div>
+      <img src="https://placehold.co/300x400" alt="Pikachu Card">
+      <h3>Pikachu Card</h3>
+      <div class="card-category">Pokémon</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,345)</div>
+      <div class="card-condition">Mint Condition</div>
+      <div class="card-price">$49.99</div>
+      <div class="card-stats">
+        <span class="stat">✨ Rare</span>
+        <span class="stat">🔥 Hot Deal</span>
+      </div>
+      <p>Rare electric-type Pokémon card popular among collectors.</p>
+      <a href="pikachu.html">View Card →</a>
+    </div>
+
+    <!-- Panini Adrenalyn Football Cards -->
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Cristiano Ronaldo">
+      <h3>Cristiano Ronaldo</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (3,500)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$99.99</div>
+      <div class="card-stats">
+        <span class="stat">🏆 Iconic</span>
+        <span class="stat">⚡ Legend</span>
+      </div>
+      <p>Limited edition Panini Adrenalyn Cristiano Ronaldo card.</p>
+      <a href="panini-ronaldo.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="in-stock">
+      <span class="card-badge">🔥 Hot Deal</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Lionel Messi">
+      <h3>Lionel Messi</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (3,200)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$89.99</div>
+      <div class="card-stats">
+        <span class="stat">🏆 Iconic</span>
+        <span class="stat">⚡ Legend</span>
+      </div>
+      <p>Rare Panini Adrenalyn Lionel Messi card from special edition.</p>
+      <a href="panini-messi.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="trending" data-availability="in-stock">
+      <span class="card-badge">📈 Trending</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Erling Haaland">
+      <h3>Erling Haaland</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,890)</div>
+      <div class="card-condition">Near Mint</div>
+      <div class="card-price">$65.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Rising Star</span>
+        <span class="stat">🔥 In Demand</span>
+      </div>
+      <p>Panini Adrenalyn Erling Haaland - rising football superstar card.</p>
+      <a href="panini-haaland.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Kylian Mbappe">
+      <h3>Kylian Mbappé</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (3,100)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$79.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Dynamic</span>
+        <span class="stat">🏆 World Class</span>
+      </div>
+      <p>Panini Adrenalyn Kylian Mbappé premium collectible card.</p>
+      <a href="panini-mbappe.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="out-of-stock">
+      <span class="card-badge out-of-stock">Out of Stock</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Neymar Jr">
+      <h3>Neymar Jr</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (2,500)</div>
+      <div class="card-condition">Excellent</div>
+      <div class="card-price">$54.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Flair</span>
+        <span class="stat">🎯 Legendary</span>
+      </div>
+      <p>Panini Adrenalyn Neymar Jr - currently out of stock.</p>
+      <a href="panini-neymar.html">Out of Stock</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Vinicius Jr">
+      <h3>Vinicius Jr</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,700)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$59.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Rising</span>
+        <span class="stat">🏆 Elite</span>
+      </div>
+      <p>Panini Adrenalyn Vinicius Jr exclusive collectible card.</p>
+      <a href="panini-vinicius.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="in-stock">
+      <span class="card-badge">🔥 Hot Deal</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Harry Kane">
+      <h3>Harry Kane</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (2,100)</div>
+      <div class="card-condition">Near Mint</div>
+      <div class="card-price">$49.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Striker</span>
+        <span class="stat">🏆 Clinical</span>
+      </div>
+      <p>Panini Adrenalyn Harry Kane premium striker card.</p>
+      <a href="panini-kane.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="trending" data-availability="in-stock">
+      <span class="card-badge">📈 Trending</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Kevin De Bruyne">
+      <h3>Kevin De Bruyne</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,900)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$74.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Maestro</span>
+        <span class="stat">🎯 Brilliant</span>
+      </div>
+      <p>Panini Adrenalyn Kevin De Bruyne elite midfielder card.</p>
+      <a href="panini-kdb.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Vinícius Tobias">
+      <h3>Vinícius Tobias</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,200)</div>
+      <div class="card-condition">Excellent</div>
+      <div class="card-price">$29.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Prospect</span>
+        <span class="stat">🎯 Upcoming</span>
+      </div>
+      <p>Panini Adrenalyn Vinícius Tobias prospect card - new talent.</p>
+      <a href="panini-tobias.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="out-of-stock">
+      <span class="card-badge out-of-stock">Out of Stock</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Jude Bellingham">
+      <h3>Jude Bellingham</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (3,400)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$84.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Prodigy</span>
+        <span class="stat">🏆 Future Star</span>
+      </div>
+      <p>Panini Adrenalyn Jude Bellingham - currently unavailable.</p>
+      <a href="panini-bellingham.html">Out of Stock</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Jorginho">
+      <h3>Jorginho</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,800)</div>
+      <div class="card-condition">Excellent</div>
+      <div class="card-price">$39.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Midfielder</span>
+        <span class="stat">🎯 Tactical</span>
+      </div>
+      <p>Panini Adrenalyn Jorginho specialist card - tactical master.</p>
+      <a href="panini-jorginho.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="trending" data-availability="in-stock">
+      <span class="card-badge">📈 Trending</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Declan Rice">
+      <h3>Declan Rice</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,600)</div>
+      <div class="card-condition">Near Mint</div>
+      <div class="card-price">$44.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Defender</span>
+        <span class="stat">🏆 Solid</span>
+      </div>
+      <p>Panini Adrenalyn Declan Rice defensive card.</p>
+      <a href="panini-rice.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="featured" data-availability="in-stock">
+      <span class="card-badge">⭐ Featured</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Phil Foden">
+      <h3>Phil Foden</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,750)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$69.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Winger</span>
+        <span class="stat">🏆 Dynamic</span>
+      </div>
+      <p>Panini Adrenalyn Phil Foden elite winger card - featured!</p>
+      <a href="panini-foden.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Rodrygo">
+      <h3>Rodrygo</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (2,100)</div>
+      <div class="card-condition">Excellent</div>
+      <div class="card-price">$54.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Attacker</span>
+        <span class="stat">🎯 Bright</span>
+      </div>
+      <p>Panini Adrenalyn Rodrygo exciting prospect card.</p>
+      <a href="panini-rodrygo.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="in-stock">
+      <span class="card-badge">🔥 Hot Deal</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Luke Shaw">
+      <h3>Luke Shaw</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,600)</div>
+      <div class="card-condition">Good</div>
+      <div class="card-price">$24.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Defender</span>
+        <span class="stat">🏆 Reliable</span>
+      </div>
+      <p>Panini Adrenalyn Luke Shaw defensive specialist card.</p>
+      <a href="panini-shaw.html">View Card →</a>
+    </div>
+
+    <!-- Original Cards Continued -->
+    <div class="card show" data-category="football" data-status="trending" data-availability="in-stock">
+      <span class="card-badge">📈 Trending</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card">
+      <h3>Arsenal Bonus Card</h3>
+      <div class="card-category">Football</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,892)</div>
+      <div class="card-condition">Near Mint</div>
+      <div class="card-price">$34.99</div>
+      <div class="card-stats">
+        <span class="stat">🏆 Collectible</span>
+        <span class="stat">📈 Trending</span>
+      </div>
+      <p>Football collectible trading card inspired by Arsenal FC.</p>
+      <a href="arsenal.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="football" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New Arrival</span>
+      <div class="card-icon">🎯</div>
+      <img src="https://placehold.co/300x400" alt="AC Milan">
+      <h3>AC Milan Club Badge</h3>
+      <div class="card-category">Football</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (892)</div>
+      <div class="card-condition">Excellent</div>
+      <div class="card-price">$39.99</div>
+      <div class="card-stats">
+        <span class="stat">💎 Premium</span>
+        <span class="stat">🎁 Limited Edition</span>
+      </div>
+      <p>Football collectible trading club badge by AC Milan.</p>
+      <a href="Acmilan.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="custom" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">🎨</div>
+      <img src="https://placehold.co/300x400" alt="Custom Card">
+      <h3>Custom Artwork Card</h3>
+      <div class="card-category">Custom</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (456)</div>
+      <div class="card-condition">Perfect</div>
+      <div class="card-price">$24.99</div>
+      <div class="card-stats">
+        <span class="stat">🎨 Unique</span>
+        <span class="stat">🖼️ Artist Made</span>
+      </div>
+      <p>One-of-a-kind custom artwork card by independent artist.</p>
+      <a href="custom.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="football" data-status="hot-deals" data-availability="in-stock">
+      <span class="card-badge">🔥 Hot Deal</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Manchester United">
+      <h3>Manchester United Legend</h3>
+      <div class="card-category">Football</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (2,100)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$44.99</div>
+      <div class="card-stats">
+        <span class="stat">🏆 Iconic</span>
+        <span class="stat">🔥 Hot Deal</span>
+      </div>
+      <p>Limited edition Manchester United legend trading card.</p>
+      <a href="manutd.html">View Card →</a>
+    </div>
+
+  </section>
+
+  <!-- Ad Space 2 - Below Cards -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9243072392601630"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <section class="about">
+    <h2>🌟 About Our Marketplace</h2>
+    <p>
+      Card Market was created for trading card fans who enjoy collecting,
+      buying, and sharing cards online. The website supports multiple
+      card categories including Pokémon, football, Panini Adrenalyn, and custom fan-made cards.
+      New cards and features are added regularly to improve the experience.
+    </p>
+  </section>
+
+  <!-- Ad Space 3 - Below About Section -->
   <div class="ad-container">
     <ins class="adsbygoogle"
          style="display:block"
@@ -581,22 +1032,34 @@
   </footer>
 
   <script>
+    let currentCategory = 'all';
+    let currentStatus = 'all';
+    let currentAvailability = 'all';
+
     // Check if user is logged in
     function checkLogin() {
       const loggedInUser = localStorage.getItem('loggedInUser');
       const userDisplay = document.getElementById('userDisplay');
       const loginLogout = document.getElementById('loginLogout');
+      const navLogin = document.getElementById('navLogin');
+      const welcomeMessage = document.getElementById('welcomeMessage');
 
       if (loggedInUser) {
+        // User is logged in
         userDisplay.textContent = 'Welcome, ' + loggedInUser + '!';
         loginLogout.textContent = 'Logout';
         loginLogout.onclick = logout;
         loginLogout.href = '#';
+        navLogin.style.display = 'none';
+        welcomeMessage.textContent = 'Welcome, ' + loggedInUser + '! 👋';
       } else {
+        // User is not logged in
         userDisplay.textContent = '';
         loginLogout.textContent = 'Login';
         loginLogout.href = 'login.html';
         loginLogout.onclick = null;
+        navLogin.style.display = 'inline';
+        welcomeMessage.textContent = 'Welcome to Card Market';
       }
     }
 
@@ -605,7 +1068,77 @@
       window.location.href = 'login.html';
     }
 
+    function filterByCategory(category) {
+      currentCategory = category;
+      applyFilters();
+      updateActiveFilters();
+    }
+
+    function filterByStatus(status) {
+      currentStatus = status;
+      applyFilters();
+      updateActiveFilters();
+    }
+
+    function filterByAvailability(availability) {
+      currentAvailability = availability;
+      applyFilters();
+      updateActiveFilters();
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardStatus = card.getAttribute('data-status');
+        const cardAvailability = card.getAttribute('data-availability');
+
+        const categoryMatch = currentCategory === 'all' || cardCategory === currentCategory;
+        const statusMatch = currentStatus === 'all' || cardStatus === currentStatus;
+        const availabilityMatch = currentAvailability === 'all' || cardAvailability === currentAvailability;
+
+        if (categoryMatch && statusMatch && availabilityMatch) {
+          card.classList.add('show');
+          visibleCount++;
+        } else {
+          card.classList.remove('show');
+        }
+      });
+
+      // Update card count
+      const countEl = document.getElementById('cardCount');
+      if (visibleCount === 0) {
+        countEl.textContent = '❌ No cards found matching your filters. Try different selections!';
+      } else {
+        countEl.textContent = `📊 Showing ${visibleCount} card(s)`;
+      }
+    }
+
+    function updateActiveFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Set active button based on current filter
+      if (currentStatus === 'all' && currentAvailability === 'all') {
+        filterBtns[0].classList.add('active');
+      } else {
+        filterBtns.forEach(btn => {
+          const btnText = btn.textContent.toLowerCase();
+          if ((currentStatus !== 'all' && btnText.includes(currentStatus.replace('-', ' '))) ||
+              (currentAvailability === 'in-stock' && btnText.includes('stock'))) {
+            btn.classList.add('active');
+          }
+        });
+      }
+    }
+
+    // Check login status on page load and show initial count
     checkLogin();
+    applyFilters();
   </script>
 
 </body>
