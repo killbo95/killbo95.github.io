@@ -991,6 +991,75 @@
       <a href="manutd.html">View Card →</a>
     </div>
 
+    <!-- New Player Cards - Auto Accept -->
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Maxi Araujo">
+      <h3>Maxi Araujo</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,450)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$34.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Defender</span>
+        <span class="stat">🌟 Rising Talent</span>
+      </div>
+      <p>Panini Adrenalyn Maxi Araujo emerging defender card.</p>
+      <a href="panini-araujo.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Samuel Chukwueze">
+      <h3>Samuel Chukwueze</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐⭐ (1,820)</div>
+      <div class="card-condition">Mint</div>
+      <div class="card-price">$42.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Winger</span>
+        <span class="stat">🔥 Explosive</span>
+      </div>
+      <p>Panini Adrenalyn Samuel Chukwueze explosive winger card.</p>
+      <a href="panini-chukwueze.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Jannik Vestergaard">
+      <h3>Jannik Vestergaard</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,320)</div>
+      <div class="card-condition">Excellent</div>
+      <div class="card-price">$28.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Defender</span>
+        <span class="stat">🏆 Solid</span>
+      </div>
+      <p>Panini Adrenalyn Jannik Vestergaard defensive specialist card.</p>
+      <a href="panini-vestergaard.html">View Card →</a>
+    </div>
+
+    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
+      <span class="card-badge">✨ New</span>
+      <div class="card-icon">⚽</div>
+      <img src="https://placehold.co/300x400" alt="Fabian Schar">
+      <h3>Fabian Schar</h3>
+      <div class="card-category">Panini Adrenalyn</div>
+      <div class="card-rating">⭐⭐⭐⭐☆ (1,675)</div>
+      <div class="card-condition">Near Mint</div>
+      <div class="card-price">$36.99</div>
+      <div class="card-stats">
+        <span class="stat">⚡ Defender</span>
+        <span class="stat">🏆 Versatile</span>
+      </div>
+      <p>Panini Adrenalyn Fabian Schar versatile defender card.</p>
+      <a href="panini-schar.html">View Card →</a>
+    </div>
+
   </section>
 
   <!-- Ad Space 2 - Below Cards -->
@@ -1006,140 +1075,94 @@
   </div>
 
   <section class="about">
-    <h2>🌟 About Our Marketplace</h2>
+    <h2>About Card Market</h2>
     <p>
-      Card Market was created for trading card fans who enjoy collecting,
-      buying, and sharing cards online. The website supports multiple
-      card categories including Pokémon, football, Panini Adrenalyn, and custom fan-made cards.
-      New cards and features are added regularly to improve the experience.
+      Card Market is dedicated to providing collectors with access to the most sought-after trading cards.
+      From classic Pokémon cards to modern football collectibles, we offer a curated selection for enthusiasts.
+      Join our community and discover your next favorite card!
     </p>
   </section>
 
-  <!-- Ad Space 3 - Below About Section -->
-  <div class="ad-container">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-9243072392601630"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
   <footer>
-    © 2026 Card Market | <a href="privacy.html">Privacy Policy</a>
+    <p>&copy; 2025 Card Market. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
   </footer>
 
   <script>
-    let currentCategory = 'all';
-    let currentStatus = 'all';
-    let currentAvailability = 'all';
-
-    // Check if user is logged in
-    function checkLogin() {
-      const loggedInUser = localStorage.getItem('loggedInUser');
-      const userDisplay = document.getElementById('userDisplay');
-      const loginLogout = document.getElementById('loginLogout');
-      const navLogin = document.getElementById('navLogin');
-      const welcomeMessage = document.getElementById('welcomeMessage');
-
-      if (loggedInUser) {
-        // User is logged in
-        userDisplay.textContent = 'Welcome, ' + loggedInUser + '!';
-        loginLogout.textContent = 'Logout';
-        loginLogout.onclick = logout;
-        loginLogout.href = '#';
-        navLogin.style.display = 'none';
-        welcomeMessage.textContent = 'Welcome, ' + loggedInUser + '! 👋';
-      } else {
-        // User is not logged in
-        userDisplay.textContent = '';
-        loginLogout.textContent = 'Login';
-        loginLogout.href = 'login.html';
-        loginLogout.onclick = null;
-        navLogin.style.display = 'inline';
-        welcomeMessage.textContent = 'Welcome to Card Market';
-      }
-    }
-
-    function logout() {
-      localStorage.removeItem('loggedInUser');
-      window.location.href = 'login.html';
-    }
-
+    // Card filtering functions
     function filterByCategory(category) {
-      currentCategory = category;
-      applyFilters();
-      updateActiveFilters();
-    }
-
-    function filterByStatus(status) {
-      currentStatus = status;
-      applyFilters();
-      updateActiveFilters();
-    }
-
-    function filterByAvailability(availability) {
-      currentAvailability = availability;
-      applyFilters();
-      updateActiveFilters();
-    }
-
-    function applyFilters() {
       const cards = document.querySelectorAll('.card');
-      let visibleCount = 0;
-
       cards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        const cardStatus = card.getAttribute('data-status');
-        const cardAvailability = card.getAttribute('data-availability');
-
-        const categoryMatch = currentCategory === 'all' || cardCategory === currentCategory;
-        const statusMatch = currentStatus === 'all' || cardStatus === currentStatus;
-        const availabilityMatch = currentAvailability === 'all' || cardAvailability === currentAvailability;
-
-        if (categoryMatch && statusMatch && availabilityMatch) {
+        if (category === 'all' || card.dataset.category === category) {
           card.classList.add('show');
-          visibleCount++;
         } else {
           card.classList.remove('show');
         }
       });
-
-      // Update card count
-      const countEl = document.getElementById('cardCount');
-      if (visibleCount === 0) {
-        countEl.textContent = '❌ No cards found matching your filters. Try different selections!';
-      } else {
-        countEl.textContent = `📊 Showing ${visibleCount} card(s)`;
-      }
+      updateCardCount();
+      updateActiveFilter('category', category);
     }
 
-    function updateActiveFilters() {
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      filterBtns.forEach(btn => {
-        btn.classList.remove('active');
+    function filterByStatus(status) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (status === 'all' || card.dataset.status === status) {
+          card.classList.add('show');
+        } else {
+          card.classList.remove('show');
+        }
       });
+      updateCardCount();
+      updateActiveFilter('status', status);
+    }
 
-      // Set active button based on current filter
-      if (currentStatus === 'all' && currentAvailability === 'all') {
-        filterBtns[0].classList.add('active');
-      } else {
-        filterBtns.forEach(btn => {
-          const btnText = btn.textContent.toLowerCase();
-          if ((currentStatus !== 'all' && btnText.includes(currentStatus.replace('-', ' '))) ||
-              (currentAvailability === 'in-stock' && btnText.includes('stock'))) {
-            btn.classList.add('active');
-          }
-        });
+    function filterByAvailability(availability) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (availability === 'all' || card.dataset.availability === availability) {
+          card.classList.add('show');
+        } else {
+          card.classList.remove('show');
+        }
+      });
+      updateCardCount();
+      updateActiveFilter('availability', availability);
+    }
+
+    function updateCardCount() {
+      const visibleCards = document.querySelectorAll('.card.show').length;
+      document.getElementById('cardCount').textContent = `Showing ${visibleCards} card${visibleCards !== 1 ? 's' : ''}`;
+    }
+
+    function updateActiveFilter(filterType, filterValue) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      if (filterType === 'status' && filterValue === 'all') {
+        buttons[0].classList.add('active');
       }
     }
 
-    // Check login status on page load and show initial count
-    checkLogin();
-    applyFilters();
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCardCount();
+      
+      // User authentication check
+      const currentUser = localStorage.getItem('currentUser');
+      if (currentUser) {
+        document.getElementById('userDisplay').textContent = `Welcome, ${currentUser}!`;
+        document.getElementById('loginLogout').textContent = 'Logout';
+        document.getElementById('loginLogout').href = '#';
+        document.getElementById('loginLogout').onclick = function() {
+          localStorage.removeItem('currentUser');
+          location.reload();
+        };
+        document.getElementById('navLogin').style.display = 'none';
+      }
+    });
   </script>
 
 </body>
+
 </html>
