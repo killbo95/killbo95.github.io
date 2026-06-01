@@ -1,612 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Luke Shaw Panini Adrenalyn Football Card - Buy now on Card Market">
-
-  <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9243072392601630"
-    crossorigin="anonymous"></script>
-
-  <title>Luke Shaw - Panini Adrenalyn Card | Card Market</title>
-
+  <meta name="description" content="Luke Shaw - Panini Adrenalyn Trading Card">
+  <title>Luke Shaw Card - Card Market</title>
   <style>
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: Arial, sans-serif;
       background-color: #0b2345;
       color: white;
     }
-
     header {
       background-color: #08172f;
+      padding: 20px;
       text-align: center;
-      padding: 30px 20px;
-      position: relative;
     }
-
     header h1 {
-      margin: 0;
-      font-size: 40px;
-      animation: slideInLeft 0.8s ease-out;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
-
-    header p {
-      color: #cccccc;
-      margin-top: 10px;
-      animation: slideInLeft 0.8s ease-out 0.2s both;
-    }
-
-    .user-info {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 14px;
-    }
-
-    .user-info a {
+    header a {
       color: #ffc107;
       text-decoration: none;
-      margin-left: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;
     }
-
-    .user-info a:hover {
-      text-decoration: underline;
-      transform: scale(1.1);
-    }
-
-    nav {
-      background-color: #102a5a;
-      padding: 15px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 18px;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ffc107;
-    }
-
-    .breadcrumb {
-      background-color: #102a5a;
-      padding: 15px 20px;
-      font-size: 14px;
-      border-bottom: 1px solid #1c3b75;
-    }
-
-    .breadcrumb a {
-      color: #ffc107;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .player-container {
-      max-width: 1200px;
+    .container {
+      max-width: 900px;
       margin: 40px auto;
       padding: 20px;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .player-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
-      align-items: start;
     }
-
     .card-image {
-      background: linear-gradient(135deg, #1c3b75 0%, #2951a3 100%);
       border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      border: 3px solid #ffc107;
+      overflow: hidden;
     }
-
     .card-image img {
       width: 100%;
-      max-width: 300px;
-      border-radius: 8px;
       height: auto;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(255, 193, 7, 0.3);
     }
-
-    .player-info {
-      padding: 20px;
-    }
-
-    .player-info h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      color: #ffc107;
-    }
-
-    .player-position {
-      font-size: 18px;
-      color: #90EE90;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .player-stats {
-      background-color: #1c3b75;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      border-left: 4px solid #ffc107;
-    }
-
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #2951a3;
-    }
-
-    .stat-row:last-child {
-      border-bottom: none;
-    }
-
-    .stat-label {
-      font-weight: bold;
-      color: #ffc107;
-    }
-
-    .stat-value {
-      color: #dddddd;
-    }
-
-    .pricing-section {
-      background-color: #1c3b75;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      border: 2px solid #ffc107;
-    }
-
-    .price {
+    .card-details h2 {
       font-size: 32px;
-      font-weight: bold;
+      margin-bottom: 15px;
       color: #ffc107;
-      margin: 10px 0;
     }
-
-    .condition {
-      color: #90EE90;
+    .card-details .category {
+      color: #ffc107;
       font-weight: bold;
       text-transform: uppercase;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
-
-    .rating {
-      margin-bottom: 15px;
+    .card-details .rating {
+      margin: 15px 0;
       font-size: 16px;
     }
-
-    .btn-group {
+    .card-details .price {
+      font-size: 28px;
+      color: #ffc107;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .card-details .condition {
+      background: rgba(144, 238, 144, 0.2);
+      padding: 10px;
+      border-radius: 6px;
+      margin: 15px 0;
+      color: #90EE90;
+    }
+    .card-details .stats {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      margin: 20px 0;
     }
-
-    .btn {
-      padding: 12px 24px;
-      border: none;
+    .stat {
+      background: rgba(255, 193, 7, 0.2);
+      padding: 8px 12px;
       border-radius: 6px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      font-size: 14px;
     }
-
-    .btn-primary {
+    .card-details p {
+      line-height: 1.6;
+      margin: 20px 0;
+      color: #dddddd;
+    }
+    .card-details .btn {
       background: linear-gradient(135deg, #ffc107, #ffed4e);
       color: black;
-      flex: 1;
-      min-width: 150px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: all 0.3s ease;
     }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #ffed4e, #ffc107);
+    .card-details .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 16px rgba(255, 193, 7, 0.5);
     }
-
-    .btn-secondary {
-      background-color: #2951a3;
-      color: white;
-      flex: 1;
-      min-width: 150px;
-      border: 2px solid #ffc107;
-    }
-
-    .btn-secondary:hover {
-      background-color: #1c3b75;
-      transform: translateY(-3px);
-    }
-
-    .description {
-      background-color: #1c3b75;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 20px;
-      line-height: 1.6;
-      color: #dddddd;
-    }
-
-    .description h3 {
-      color: #ffc107;
-      margin-bottom: 10px;
-    }
-
-    .badges {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      background: linear-gradient(135deg, #ff6b6b, #ffc107);
-      color: white;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .ad-container {
-      text-align: center;
-      margin: 30px 0;
-      padding: 20px;
-      background: rgba(255, 193, 7, 0.05);
-      border-radius: 8px;
-    }
-
-    .related-cards {
-      background-color: #102a5a;
-      padding: 30px 20px;
-      margin-top: 40px;
-      border-top: 2px solid #1c3b75;
-    }
-
-    .related-cards h3 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #ffc107;
-    }
-
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .related-card {
-      background: linear-gradient(135deg, #1c3b75 0%, #2951a3 100%);
-      border-radius: 8px;
-      padding: 15px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .related-card:hover {
-      transform: translateY(-10px);
-      border-color: #ffc107;
-      box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
-    }
-
-    .related-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-
-    .related-card h4 {
-      color: #ffc107;
-      margin-bottom: 5px;
-    }
-
-    .related-card p {
-      color: #dddddd;
-      font-size: 14px;
-    }
-
-    footer {
-      background: #08172f;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaaaaa;
-    }
-
-    footer a {
-      color: #ffc107;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     @media (max-width: 768px) {
-      .player-grid {
+      .container {
         grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      header h1 {
-        font-size: 28px;
-      }
-
-      .player-info h2 {
-        font-size: 28px;
-      }
-
-      .btn-group {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .related-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       }
     }
   </style>
 </head>
-
 <body>
-
   <header>
     <h1>🎴 Card Market</h1>
-    <p>Buy, sell, and explore trading cards.</p>
-    <div class="user-info">
-      <span id="userDisplay"></span>
-      <a id="loginLogout" href="login.html">Login</a>
-    </div>
+    <p><a href="index.html">← Back to Home</a></p>
   </header>
 
-  <nav>
-    <a href="index.html">🏠 Home</a>
-    <a href="make.html">🛠️ Make/Sell</a>
-    <a href="cart.html">🛒 Cart</a>
-  </nav>
-
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> / <a href="index.html">Panini Adrenalyn</a> / <span>Luke Shaw</span>
-  </div>
-
-  <div class="player-container">
-    <div class="player-grid">
-      <!-- Card Image -->
-      <div class="card-image">
-        <img src="https://placehold.co/300x400" alt="Luke Shaw Panini Adrenalyn Card">
-        <p style="margin-top: 15px; color: #ffc107; font-weight: bold;">Panini Adrenalyn</p>
-      </div>
-
-      <!-- Player Info -->
-      <div class="player-info">
-        <h2>Luke Shaw</h2>
-        <div class="player-position">🛡️ Defender (Left Back)</div>
-
-        <div class="badges">
-          <span class="badge">🔥 Hot Deal</span>
-          <span class="badge">⚡ Defender</span>
-          <span class="badge">🏆 Reliable</span>
-        </div>
-
-        <!-- Stats -->
-        <div class="player-stats">
-          <div class="stat-row">
-            <span class="stat-label">Team:</span>
-            <span class="stat-value">Manchester United</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Nationality:</span>
-            <span class="stat-value">England 🇬🇧</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Jersey Number:</span>
-            <span class="stat-value">#23</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Pace:</span>
-            <span class="stat-value">⭐⭐⭐⭐ 8/10</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Defense:</span>
-            <span class="stat-value">⭐⭐⭐⭐ 8/10</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Physical:</span>
-            <span class="stat-value">⭐⭐⭐⭐ 8/10</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Card Rarity:</span>
-            <span class="stat-value">✨ Standard</span>
-          </div>
-        </div>
-
-        <!-- Pricing -->
-        <div class="pricing-section">
-          <div class="rating">⭐⭐⭐⭐☆ 4.2/5 (1,600 reviews)</div>
-          <div class="condition">✅ Good Condition</div>
-          <div class="price">$24.99</div>
-          <p style="color: #90EE90; font-size: 14px; margin-bottom: 15px;">✅ In Stock - 12 available</p>
-
-          <div class="btn-group">
-            <button class="btn btn-primary">🛒 Add to Cart</button>
-            <button class="btn btn-secondary">❤️ Wishlist</button>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="card-image">
+      <img src="https://i.ibb.co/gLDyCgCC/luke-shaw.jpg" alt="Luke Shaw Card">
     </div>
-
-    <!-- Description -->
-    <div class="description">
-      <h3>📝 Card Description</h3>
-      <p>
-        Luke Shaw is a talented English left-back known for his pace, defensive abilities, and physical presence on the pitch. 
-        This Panini Adrenalyn card captures the essence of this reliable defender. Whether you're a Manchester United fan or 
-        a serious football card collector, this is an excellent addition to your collection. The card is in good condition with 
-        vibrant colors and clear details.
-      </p>
-      <br>
-      <p>
-        <strong>Why collect this card?</strong>
-        <ul style="margin-left: 20px; margin-top: 10px;">
-          <li>✨ Part of the official Panini Adrenalyn collection</li>
-          <li>🏆 Represents a key player at a major club</li>
-          <li>📈 Good investment potential</li>
-          <li>🎯 Great for new and experienced collectors</li>
-        </ul>
-      </p>
-    </div>
-
-    <!-- Ad Space -->
-    <div class="ad-container">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-9243072392601630"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-
-    <!-- Related Cards -->
-    <div class="related-cards">
-      <h3>🔍 Related Cards You Might Like</h3>
-      <div class="related-grid">
-        <div class="related-card" onclick="window.location.href='panini-kane.html'">
-          <img src="https://placehold.co/200x250" alt="Harry Kane">
-          <h4>Harry Kane</h4>
-          <p>Striker • England</p>
-          <p style="color: #ffc107; font-weight: bold;">$49.99</p>
-        </div>
-
-        <div class="related-card" onclick="window.location.href='panini-rice.html'">
-          <img src="https://placehold.co/200x250" alt="Declan Rice">
-          <h4>Declan Rice</h4>
-          <p>Midfielder • England</p>
-          <p style="color: #ffc107; font-weight: bold;">$44.99</p>
-        </div>
-
-        <div class="related-card" onclick="window.location.href='panini-foden.html'">
-          <img src="https://placehold.co/200x250" alt="Phil Foden">
-          <h4>Phil Foden</h4>
-          <p>Winger • England</p>
-          <p style="color: #ffc107; font-weight: bold;">$69.99</p>
-        </div>
-
-        <div class="related-card" onclick="window.location.href='panini-kdb.html'">
-          <img src="https://placehold.co/200x250" alt="Kevin De Bruyne">
-          <h4>Kevin De Bruyne</h4>
-          <p>Midfielder • Belgium</p>
-          <p style="color: #ffc107; font-weight: bold;">$74.99</p>
-        </div>
+    <div class="card-details">
+      <div class="category">Panini Adrenalyn</div>
+      <h2>Luke Shaw</h2>
+      <div class="rating">⭐⭐⭐⭐☆ (1,600 reviews)</div>
+      <div class="price">$24.99</div>
+      <div class="condition">📊 Condition: Good</div>
+      <div class="stats">
+        <span class="stat">⚡ Defender</span>
+        <span class="stat">🏆 Reliable</span>
       </div>
+      <p>Panini Adrenalyn Luke Shaw defensive specialist card. A reliable and experienced left-back, Shaw's card is perfect for collectors building a strong defensive lineup. An affordable addition to any collection.</p>
+      <p><strong>Card Details:</strong></p>
+      <ul style="margin-left: 20px; line-height: 1.8;">
+        <li>Player: Luke Shaw</li>
+        <li>Position: Defender (Left Back)</li>
+        <li>Card Type: Panini Adrenalyn</li>
+        <li>Condition: Good</li>
+        <li>Edition: Limited</li>
+      </ul>
+      <button class="btn">Add to Cart</button>
     </div>
   </div>
-
-  <!-- Ad Space 2 -->
-  <div class="ad-container">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-9243072392601630"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <footer>
-    © 2026 Card Market | <a href="privacy.html">Privacy Policy</a>
-  </footer>
-
-  <script>
-    // Check if user is logged in
-    function checkLogin() {
-      const loggedInUser = localStorage.getItem('loggedInUser');
-      const userDisplay = document.getElementById('userDisplay');
-      const loginLogout = document.getElementById('loginLogout');
-
-      if (loggedInUser) {
-        userDisplay.textContent = 'Welcome, ' + loggedInUser + '!';
-        loginLogout.textContent = 'Logout';
-        loginLogout.onclick = logout;
-        loginLogout.href = '#';
-      } else {
-        userDisplay.textContent = '';
-        loginLogout.textContent = 'Login';
-        loginLogout.href = 'login.html';
-        loginLogout.onclick = null;
-      }
-    }
-
-    function logout() {
-      localStorage.removeItem('loggedInUser');
-      window.location.href = 'login.html';
-    }
-
-    checkLogin();
-  </script>
-
 </body>
 </html>
