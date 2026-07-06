@@ -96,6 +96,18 @@
       border-left: 4px solid #ff6b6b;
     }
 
+    .success-message {
+      color: #90EE90;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+      padding: 12px;
+      background: rgba(76, 175, 80, 0.2);
+      border-radius: 5px;
+      border-left: 4px solid #4CAF50;
+    }
+
     .back-link {
       margin-top: 20px;
       text-align: center;
@@ -136,12 +148,13 @@
   
   <form onsubmit="handleAdminLogin(event)">
     <label>Username:</label>
-    <input type="text" id="adminUsername" placeholder="Enter admin username"><br>
+    <input type="text" id="adminUsername" placeholder="Enter admin username" autocomplete="off"><br>
     
     <label>Password:</label>
-    <input type="password" id="adminPassword" placeholder="Enter admin password"><br>
+    <input type="password" id="adminPassword" placeholder="Enter admin password" autocomplete="off"><br>
     
     <div class="error-message" id="errorMessage"></div>
+    <div class="success-message" id="successMessage"></div>
     
     <button type="submit">Login to Admin Panel</button>
   </form>
@@ -152,27 +165,24 @@
 </div>
 
 <script>
+  // Admin credentials - hardcoded for reliability
+  const ADMIN_USERNAME = 'admin';
+  const ADMIN_PASSWORD = 'admin123';
+
   // Check if admin is already logged in
   function checkIfAdminLoggedIn() {
-    const adminUser = localStorage.getItem('adminUser');
-    if (adminUser) {
-      window.location.href = 'admin.html';
+    try {
+      const adminUser = localStorage.getItem('adminUser');
+      if (adminUser && adminUser === ADMIN_USERNAME) {
+        window.location.href = 'admin.html';
+        return;
+      }
+    } catch (e) {
+      console.log('localStorage check failed:', e);
     }
   }
 
-  // Initialize admin users
-  function initializeAdminUsers() {
-    if (!localStorage.getItem('adminUsers')) {
-      const adminUsers = {
-        admins: [
-          { username: 'admin', password: 'admin123' }
-        ]
-      };
-      localStorage.setItem('adminUsers', JSON.stringify(adminUsers));
-    }
-  }
-
-  initializeAdminUsers();
+  // Run check on page load
   checkIfAdminLoggedIn();
 
   function handleAdminLogin(event) {
@@ -181,33 +191,43 @@
     const username = document.getElementById('adminUsername').value.trim();
     const password = document.getElementById('adminPassword').value.trim();
     const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
+    
+    // Clear messages
+    errorMessage.style.display = 'none';
+    successMessage.style.display = 'none';
     
     // Validate inputs
     if (!username || !password) {
-      errorMessage.textContent = 'Please enter both username and password';
+      errorMessage.textContent = '❌ Please enter both username and password';
       errorMessage.style.display = 'block';
       return;
     }
     
-    // Get admin users from localStorage
-    const adminData = JSON.parse(localStorage.getItem('adminUsers') || '{"admins": []}');
-    const admin = adminData.admins.find(a => a.username === username && a.password === password);
-    
-    if (!admin) {
-      errorMessage.textContent = 'Invalid admin username or password';
+    // Check credentials
+    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+      // Success!
+      successMessage.textContent = '✅ Login successful! Redirecting...';
+      successMessage.style.display = 'block';
+      
+      // Save to localStorage with error handling
+      try {
+        localStorage.setItem('adminUser', username);
+        localStorage.setItem('adminLoginTimestamp', new Date().getTime().toString());
+      } catch (e) {
+        console.log('localStorage save failed:', e);
+      }
+      
+      // Redirect after a short delay
+      setTimeout(() => {
+        window.location.href = 'admin.html';
+      }, 500);
+    } else {
+      // Failed login
+      errorMessage.textContent = '❌ Invalid username or password. Try: admin / admin123';
       errorMessage.style.display = 'block';
-      return;
+      document.getElementById('adminPassword').value = ''; // Clear password
     }
-    
-    // Hide error message and login successful
-    errorMessage.style.display = 'none';
-    
-    // Save admin username to localStorage with timestamp
-    localStorage.setItem('adminUser', username);
-    localStorage.setItem('adminLoginTimestamp', new Date().getTime().toString());
-    
-    // Redirect to admin dashboard
-    window.location.href = 'admin.html';
   }
 </script>
 
