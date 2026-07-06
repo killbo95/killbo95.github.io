@@ -588,6 +588,7 @@
     <div class="user-info">
       <span id="userDisplay"></span>
       <a id="loginLogout" href="login.html">Login</a>
+      <a id="adminLink" href="admin-login.html" style="display:none;">⚙️ Admin</a>
     </div>
   </header>
 
@@ -648,521 +649,69 @@
 
   <section class="cards" id="cardsContainer">
 
-    <!-- Original Cards -->
-    <div class="card show" data-category="pokemon" data-status="featured" data-availability="in-stock">
-      <span class="card-badge">⭐ Featured</span>
-      <div class="card-icon">⚡</div>
-      <img src="https://placehold.co/300x400" alt="Pikachu Card">
-      <h3>Pikachu Card</h3>
-      <div class="card-category">Pokémon</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (2,345)</div>
-      <div class="card-condition">Mint Condition</div>
-      <div class="card-price">$49.99</div>
-      <div class="card-stats">
-        <span class="stat">✨ Rare</span>
-        <span class="stat">🔥 Hot Deal</span>
-      </div>
-      <p>Rare electric-type Pokémon card popular among collectors.</p>
-      <a href="pikachu.html">View Card →</a>
-    </div>
-
-    <!-- Panini Adrenalyn Football Cards -->
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Cristiano Ronaldo">
-      <h3>Cristiano Ronaldo</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (3,500)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$99.99</div>
-      <div class="card-stats">
-        <span class="stat">🏆 Iconic</span>
-        <span class="stat">⚡ Legend</span>
-      </div>
-      <p>Limited edition Panini Adrenalyn Cristiano Ronaldo card.</p>
-      <a href="panini-ronaldo.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="in-stock">
-      <span class="card-badge">🔥 Hot Deal</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Lionel Messi">
-      <h3>Lionel Messi</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (3,200)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$89.99</div>
-      <div class="card-stats">
-        <span class="stat">🏆 Iconic</span>
-        <span class="stat">⚡ Legend</span>
-      </div>
-      <p>Rare Panini Adrenalyn Lionel Messi card from special edition.</p>
-      <a href="panini-messi.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="trending" data-availability="in-stock">
-      <span class="card-badge">📈 Trending</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Erling Haaland">
-      <h3>Erling Haaland</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (2,890)</div>
-      <div class="card-condition">Near Mint</div>
-      <div class="card-price">$65.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Rising Star</span>
-        <span class="stat">🔥 In Demand</span>
-      </div>
-      <p>Panini Adrenalyn Erling Haaland - rising football superstar card.</p>
-      <a href="panini-haaland.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Kylian Mbappe">
-      <h3>Kylian Mbappé</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (3,100)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$79.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Dynamic</span>
-        <span class="stat">🏆 World Class</span>
-      </div>
-      <p>Panini Adrenalyn Kylian Mbappé premium collectible card.</p>
-      <a href="panini-mbappe.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="out-of-stock">
-      <span class="card-badge out-of-stock">Out of Stock</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Neymar Jr">
-      <h3>Neymar Jr</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (2,500)</div>
-      <div class="card-condition">Excellent</div>
-      <div class="card-price">$54.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Flair</span>
-        <span class="stat">🎯 Legendary</span>
-      </div>
-      <p>Panini Adrenalyn Neymar Jr - currently out of stock.</p>
-      <a href="panini-neymar.html">Out of Stock</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Vinicius Jr">
-      <h3>Vinicius Jr</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (2,700)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$59.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Rising</span>
-        <span class="stat">🏆 Elite</span>
-      </div>
-      <p>Panini Adrenalyn Vinicius Jr exclusive collectible card.</p>
-      <a href="panini-vinicius.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="in-stock">
-      <span class="card-badge">🔥 Hot Deal</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Harry Kane">
-      <h3>Harry Kane</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (2,100)</div>
-      <div class="card-condition">Near Mint</div>
-      <div class="card-price">$49.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Striker</span>
-        <span class="stat">🏆 Clinical</span>
-      </div>
-      <p>Panini Adrenalyn Harry Kane premium striker card.</p>
-      <a href="panini-kane.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="trending" data-availability="in-stock">
-      <span class="card-badge">📈 Trending</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Kevin De Bruyne">
-      <h3>Kevin De Bruyne</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (2,900)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$74.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Maestro</span>
-        <span class="stat">🎯 Brilliant</span>
-      </div>
-      <p>Panini Adrenalyn Kevin De Bruyne elite midfielder card.</p>
-      <a href="panini-kdb.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Vinícius Tobias">
-      <h3>Vinícius Tobias</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (1,200)</div>
-      <div class="card-condition">Excellent</div>
-      <div class="card-price">$29.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Prospect</span>
-        <span class="stat">🎯 Upcoming</span>
-      </div>
-      <p>Panini Adrenalyn Vinícius Tobias prospect card - new talent.</p>
-      <a href="panini-tobias.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="out-of-stock">
-      <span class="card-badge out-of-stock">Out of Stock</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Jude Bellingham">
-      <h3>Jude Bellingham</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (3,400)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$84.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Prodigy</span>
-        <span class="stat">🏆 Future Star</span>
-      </div>
-      <p>Panini Adrenalyn Jude Bellingham - currently unavailable.</p>
-      <a href="panini-bellingham.html">Out of Stock</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Jorginho">
-      <h3>Jorginho</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (1,800)</div>
-      <div class="card-condition">Excellent</div>
-      <div class="card-price">$39.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Midfielder</span>
-        <span class="stat">🎯 Tactical</span>
-      </div>
-      <p>Panini Adrenalyn Jorginho specialist card - tactical master.</p>
-      <a href="panini-jorginho.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="trending" data-availability="in-stock">
-      <span class="card-badge">📈 Trending</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Declan Rice">
-      <h3>Declan Rice</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (2,600)</div>
-      <div class="card-condition">Near Mint</div>
-      <div class="card-price">$44.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Defender</span>
-        <span class="stat">🏆 Solid</span>
-      </div>
-      <p>Panini Adrenalyn Declan Rice defensive card.</p>
-      <a href="panini-rice.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="featured" data-availability="in-stock">
-      <span class="card-badge">⭐ Featured</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Phil Foden">
-      <h3>Phil Foden</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (2,750)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$69.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Winger</span>
-        <span class="stat">🏆 Dynamic</span>
-      </div>
-      <p>Panini Adrenalyn Phil Foden elite winger card - featured!</p>
-      <a href="panini-foden.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Rodrygo">
-      <h3>Rodrygo</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (2,100)</div>
-      <div class="card-condition">Excellent</div>
-      <div class="card-price">$54.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Attacker</span>
-        <span class="stat">🎯 Bright</span>
-      </div>
-      <p>Panini Adrenalyn Rodrygo exciting prospect card.</p>
-      <a href="panini-rodrygo.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="hot-deals" data-availability="in-stock">
-      <span class="card-badge">🔥 Hot Deal</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://i.ibb.co/gLDyCgCC/luke-shaw.jpg" alt="Luke Shaw">
-      <h3>Luke Shaw</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (1,600)</div>
-      <div class="card-condition">Good</div>
-      <div class="card-price">$24.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Defender</span>
-        <span class="stat">🏆 Reliable</span>
-      </div>
-      <p>Panini Adrenalyn Luke Shaw defensive specialist card.</p>
-      <a href="panini-shaw.html">View Card →</a>
-    </div>
-
-    <!-- Original Cards Continued -->
-    <div class="card show" data-category="football" data-status="trending" data-availability="in-stock">
-      <span class="card-badge">📈 Trending</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://i.ibb.co/ksbHW3zW/20250702-122803-1.jpg" alt="Arsenal Card">
-      <h3>Arsenal Bonus Card</h3>
-      <div class="card-category">Football</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (1,892)</div>
-      <div class="card-condition">Near Mint</div>
-      <div class="card-price">$34.99</div>
-      <div class="card-stats">
-        <span class="stat">🏆 Collectible</span>
-        <span class="stat">📈 Trending</span>
-      </div>
-      <p>Football collectible trading card inspired by Arsenal FC.</p>
-      <a href="arsenal.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="football" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New Arrival</span>
-      <div class="card-icon">🎯</div>
-      <img src="https://i.ibb.co/MksVcBVj/ac-milan.jpg" alt="AC Milan">
-      <h3>AC Milan Club Badge</h3>
-      <div class="card-category">Football</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (892)</div>
-      <div class="card-condition">Excellent</div>
-      <div class="card-price">$39.99</div>
-      <div class="card-stats">
-        <span class="stat">💎 Premium</span>
-        <span class="stat">🎁 Limited Edition</span>
-      </div>
-      <p>Football collectible trading club badge by AC Milan.</p>
-      <a href="Acmilan.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="custom" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">🎨</div>
-      <img src="https://placehold.co/300x400" alt="Custom Card">
-      <h3>Custom Artwork Card</h3>
-      <div class="card-category">Custom</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (456)</div>
-      <div class="card-condition">Perfect</div>
-      <div class="card-price">$24.99</div>
-      <div class="card-stats">
-        <span class="stat">🎨 Unique</span>
-        <span class="stat">🖼️ Artist Made</span>
-      </div>
-      <p>One-of-a-kind custom artwork card by independent artist.</p>
-      <a href="custom.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="football" data-status="hot-deals" data-availability="in-stock">
-      <span class="card-badge">🔥 Hot Deal</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://placehold.co/300x400" alt="Manchester United">
-      <h3>Manchester United Legend</h3>
-      <div class="card-category">Football</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (2,100)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$44.99</div>
-      <div class="card-stats">
-        <span class="stat">🏆 Iconic</span>
-        <span class="stat">🔥 Hot Deal</span>
-      </div>
-      <p>Limited edition Manchester United legend trading card.</p>
-      <a href="manutd.html">View Card →</a>
-    </div>
-
-    <!-- New Player Cards - With Real Images -->
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://i.ibb.co/4R0TqMHX/maxi-araujo.jpg" alt="Maxi Araujo">
-      <h3>Maxi Araujo</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (1,450)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$34.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Defender</span>
-        <span class="stat">🌟 Rising Talent</span>
-      </div>
-      <p>Panini Adrenalyn Maxi Araujo emerging defender card.</p>
-      <a href="panini-araujo.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://i.ibb.co/VY28cxjG/samuel-chukwueze.jpg" alt="Samuel Chukwueze">
-      <h3>Samuel Chukwueze</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐⭐ (1,820)</div>
-      <div class="card-condition">Mint</div>
-      <div class="card-price">$42.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Winger</span>
-        <span class="stat">🔥 Explosive</span>
-      </div>
-      <p>Panini Adrenalyn Samuel Chukwueze explosive winger card.</p>
-      <a href="panini-chukwueze.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://i.ibb.co/PZ3dgGkN/jannik-vestergaard.jpg" alt="Jannik Vestergaard">
-      <h3>Jannik Vestergaard</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (1,320)</div>
-      <div class="card-condition">Excellent</div>
-      <div class="card-price">$28.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Defender</span>
-        <span class="stat">🏆 Solid</span>
-      </div>
-      <p>Panini Adrenalyn Jannik Vestergaard defensive specialist card.</p>
-      <a href="panini-vestergaard.html">View Card →</a>
-    </div>
-
-    <div class="card show" data-category="panini-adrenalyn" data-status="new" data-availability="in-stock">
-      <span class="card-badge">✨ New</span>
-      <div class="card-icon">⚽</div>
-      <img src="https://i.ibb.co/H9kY6Kk/fabian-schar.jpg" alt="Fabian Schar">
-      <h3>Fabian Schar</h3>
-      <div class="card-category">Panini Adrenalyn</div>
-      <div class="card-rating">⭐⭐⭐⭐☆ (1,675)</div>
-      <div class="card-condition">Near Mint</div>
-      <div class="card-price">$36.99</div>
-      <div class="card-stats">
-        <span class="stat">⚡ Defender</span>
-        <span class="stat">🏆 Versatile</span>
-      </div>
-      <p>Panini Adrenalyn Fabian Schar versatile defender card.</p>
-      <a href="panini-schar.html">View Card →</a>
-    </div>
-
+    <!-- Cards will be loaded here -->
   </section>
 
-  <!-- Ad Space 2 - Below Cards -->
-  <div class="ad-container">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-9243072392601630"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <section class="about">
+  <div class="about">
     <h2>About Card Market</h2>
     <p>
-      Card Market is dedicated to providing collectors with access to the most sought-after trading cards.
-      From classic Pokémon cards to modern football collectibles, we offer a curated selection for enthusiasts.
-      Join our community and discover your next favorite card!
+      Our mission is to connect trading card enthusiasts around the world. Whether you're a Pokémon collector,
+      football card fan, or custom card artist, Card Market is your marketplace.
     </p>
-  </section>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Card Market. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <p>&copy; 2025 Card Market. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
   </footer>
 
   <script>
-    // Card filtering functions
-    function filterByCategory(category) {
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.classList.add('show');
-        } else {
-          card.classList.remove('show');
-        }
-      });
-      updateCardCount();
-      updateActiveFilter('category', category);
-    }
+    // Initialize user display and logout functionality
+    function initializeUserDisplay() {
+      const loggedInUser = localStorage.getItem('loggedInUser');
+      const userDisplay = document.getElementById('userDisplay');
+      const loginLogout = document.getElementById('loginLogout');
+      const navLogin = document.getElementById('navLogin');
+      const adminLink = document.getElementById('adminLink');
 
-    function filterByStatus(status) {
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        if (status === 'all' || card.dataset.status === status) {
-          card.classList.add('show');
-        } else {
-          card.classList.remove('show');
-        }
-      });
-      updateCardCount();
-      updateActiveFilter('status', status);
-    }
-
-    function filterByAvailability(availability) {
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        if (availability === 'all' || card.dataset.availability === availability) {
-          card.classList.add('show');
-        } else {
-          card.classList.remove('show');
-        }
-      });
-      updateCardCount();
-      updateActiveFilter('availability', availability);
-    }
-
-    function updateCardCount() {
-      const visibleCards = document.querySelectorAll('.card.show').length;
-      document.getElementById('cardCount').textContent = `Showing ${visibleCards} card${visibleCards !== 1 ? 's' : ''}`;
-    }
-
-    function updateActiveFilter(filterType, filterValue) {
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(button => {
-        button.classList.remove('active');
-      });
-      
-      if (filterType === 'status' && filterValue === 'all') {
-        buttons[0].classList.add('active');
+      if (loggedInUser) {
+        // User is logged in
+        userDisplay.textContent = `👤 Welcome, ${loggedInUser}`;
+        loginLogout.textContent = 'Logout';
+        loginLogout.href = '#';
+        loginLogout.onclick = function(e) {
+          e.preventDefault();
+          if (confirm('Are you sure you want to logout?')) {
+            localStorage.removeItem('loggedInUser');
+            localStorage.removeItem('loginTimestamp');
+            window.location.href = 'index.html';
+          }
+        };
+        navLogin.style.display = 'none';
+      } else {
+        // User is not logged in
+        userDisplay.textContent = '';
+        loginLogout.textContent = 'Login';
+        loginLogout.href = 'login.html';
+        navLogin.style.display = 'block';
       }
     }
 
     // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      updateCardCount();
-      
-      // User authentication check
-      const currentUser = localStorage.getItem('currentUser');
-      if (currentUser) {
-        document.getElementById('userDisplay').textContent = `Welcome, ${currentUser}!`;
-        document.getElementById('loginLogout').textContent = 'Logout';
-        document.getElementById('loginLogout').href = '#';
-        document.getElementById('loginLogout').onclick = function() {
-          localStorage.removeItem('currentUser');
-          location.reload();
-        };
-        document.getElementById('navLogin').style.display = 'none';
-      }
-    });
+    initializeUserDisplay();
+
+    // Placeholder for filter and card display functions
+    function filterByCategory(category) {
+      console.log('Filter by category:', category);
+    }
+
+    function filterByStatus(status) {
+      console.log('Filter by status:', status);
+    }
+
+    function filterByAvailability(availability) {
+      console.log('Filter by availability:', availability);
+    }
   </script>
 
 </body>
-
 </html>
