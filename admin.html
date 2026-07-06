@@ -645,6 +645,7 @@
       const adminUser = localStorage.getItem('adminUser');
       if (!adminUser) {
         window.location.href = 'admin-login.html';
+        return;
       }
       document.getElementById('adminUser').textContent = adminUser;
     }
@@ -682,7 +683,9 @@
 
     loadDashboard() {
       const users = JSON.parse(localStorage.getItem('users') || '{"users": []}');
+      const cards = JSON.parse(localStorage.getItem('cards') || '[]');
       document.getElementById('totalUsers').textContent = users.users.length;
+      document.getElementById('totalCards').textContent = cards.length;
       document.getElementById('activeSessions').textContent = users.users.length;
     }
 
@@ -690,6 +693,11 @@
       const users = JSON.parse(localStorage.getItem('users') || '{"users": []}');
       const tbody = document.getElementById('usersList');
       tbody.innerHTML = '';
+
+      if (users.users.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #999;">No users found</td></tr>';
+        return;
+      }
 
       users.users.forEach((user, index) => {
         const row = tbody.insertRow();
@@ -711,6 +719,11 @@
       const cards = JSON.parse(localStorage.getItem('cards') || '[]');
       const tbody = document.getElementById('cardsList');
       tbody.innerHTML = '';
+
+      if (cards.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #999;">No cards found</td></tr>';
+        return;
+      }
 
       cards.forEach((card, index) => {
         const row = tbody.insertRow();
@@ -794,6 +807,7 @@
     localStorage.setItem('users', JSON.stringify(users));
     admin.showMessage('User added successfully!', 'success');
     admin.loadUsers();
+    admin.loadDashboard();
     closeUserModal();
   }
 
@@ -804,6 +818,7 @@
       localStorage.setItem('users', JSON.stringify(users));
       admin.showMessage('User deleted successfully!', 'success');
       admin.loadUsers();
+      admin.loadDashboard();
     }
   }
 
@@ -842,6 +857,7 @@
     localStorage.setItem('cards', JSON.stringify(cards));
     admin.showMessage('Card added successfully!', 'success');
     admin.loadCards();
+    admin.loadDashboard();
     closeCardModal();
   }
 
@@ -852,6 +868,7 @@
       localStorage.setItem('cards', JSON.stringify(cards));
       admin.showMessage('Card deleted successfully!', 'success');
       admin.loadCards();
+      admin.loadDashboard();
     }
   }
 
@@ -886,6 +903,7 @@
   function logout() {
     if (confirm('Are you sure you want to logout?')) {
       localStorage.removeItem('adminUser');
+      localStorage.removeItem('adminLoginTimestamp');
       window.location.href = 'index.html';
     }
   }
