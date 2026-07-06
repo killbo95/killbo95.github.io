@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(135deg, #0b2345 0%, #102a5a 100%);
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .login-container {
+      max-width: 400px;
+      background: #1c3b75;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border: 2px solid #ffc107;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #ffc107;
+      font-size: 28px;
+    }
+
+    .admin-badge {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffc107;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      margin-top: 8px;
+      padding: 12px;
+      border: 2px solid #1c3b75;
+      border-radius: 5px;
+      font-size: 14px;
+      background: #0d1f3c;
+      color: white;
+      transition: all 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #ffc107;
+      outline: none;
+      box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    }
+    
+    button {
+      margin-top: 25px;
+      padding: 14px;
+      background: #ffc107;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    button:hover {
+      background: #ffed4e;
+      transform: translateY(-2px);
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+      padding: 12px;
+      background: rgba(255, 107, 107, 0.2);
+      border-radius: 5px;
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .back-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: #ffc107;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .info-box {
+      background: rgba(255, 193, 7, 0.1);
+      border-left: 4px solid #ffc107;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="admin-badge">🔐</div>
+  <h1>Admin Login</h1>
+
+  <div class="info-box">
+    <strong>Demo Credentials:</strong><br>
+    Username: <code>admin</code><br>
+    Password: <code>admin123</code>
+  </div>
+  
+  <form onsubmit="handleAdminLogin(event)">
+    <label>Username:</label>
+    <input type="text" id="adminUsername" placeholder="Enter admin username"><br>
+    
+    <label>Password:</label>
+    <input type="password" id="adminPassword" placeholder="Enter admin password"><br>
+    
+    <div class="error-message" id="errorMessage"></div>
+    
+    <button type="submit">Login to Admin Panel</button>
+  </form>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Home</a>
+  </div>
+</div>
+
+<script>
+  // Check if admin is already logged in
+  function checkIfAdminLoggedIn() {
+    const adminUser = localStorage.getItem('adminUser');
+    if (adminUser) {
+      window.location.href = 'admin.html';
+    }
+  }
+
+  // Initialize admin users
+  function initializeAdminUsers() {
+    if (!localStorage.getItem('adminUsers')) {
+      const adminUsers = {
+        admins: [
+          { username: 'admin', password: 'admin123' }
+        ]
+      };
+      localStorage.setItem('adminUsers', JSON.stringify(adminUsers));
+    }
+  }
+
+  initializeAdminUsers();
+  checkIfAdminLoggedIn();
+
+  function handleAdminLogin(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('adminUsername').value.trim();
+    const password = document.getElementById('adminPassword').value.trim();
+    const errorMessage = document.getElementById('errorMessage');
+    
+    // Validate inputs
+    if (!username || !password) {
+      errorMessage.textContent = 'Please enter both username and password';
+      errorMessage.style.display = 'block';
+      return;
+    }
+    
+    // Get admin users from localStorage
+    const adminData = JSON.parse(localStorage.getItem('adminUsers') || '{"admins": []}');
+    const admin = adminData.admins.find(a => a.username === username && a.password === password);
+    
+    if (!admin) {
+      errorMessage.textContent = 'Invalid admin username or password';
+      errorMessage.style.display = 'block';
+      return;
+    }
+    
+    // Hide error message and login successful
+    errorMessage.style.display = 'none';
+    
+    // Save admin username to localStorage with timestamp
+    localStorage.setItem('adminUser', username);
+    localStorage.setItem('adminLoginTimestamp', new Date().getTime().toString());
+    
+    // Redirect to admin dashboard
+    window.location.href = 'admin.html';
+  }
+</script>
+
+</body>
+</html>
