@@ -124,7 +124,16 @@
     }
   }
 
+  // Check if user is already logged in
+  function checkIfLoggedIn() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+      window.location.href = 'index.html';
+    }
+  }
+
   initializeUsers();
+  checkIfLoggedIn();
 
   function handleLogin(event) {
     event.preventDefault();
@@ -153,8 +162,9 @@
     // Hide error message and login successful
     errorMessage.style.display = 'none';
     
-    // Save username to localStorage
+    // Save username to localStorage with timestamp for session persistence
     localStorage.setItem('loggedInUser', username);
+    localStorage.setItem('loginTimestamp', new Date().getTime().toString());
     
     // Redirect to index.html
     window.location.href = 'index.html';
