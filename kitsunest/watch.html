@@ -43,12 +43,16 @@ var haikyuEpisodeTitles = [
   "The Third Day"
 ];
 var episodeSources = { haikyu: {}, tbate: {}, hellmode: {}, mob: {}, littlewitch: {}, planetes: {} };
-// Candidate URLs follow the same folder/filename pattern as the Episode 1 URL provided.
-// Only Episode 1 has been confirmed; the remaining generated URLs must be tested.
-haikyuEpisodeTitles.forEach(function(title,index){
-  var n=String(index+1).padStart(2,"0");
-  episodeSources.haikyu[index+1]="https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%20"+n+"//"+n+"%20"+encodeURIComponent(title).replace(/'/g,"%27")+".mp4";
-});
+// Explicit video URLs supplied by the site owner. Add more only when the exact URL is known.
+episodeSources.haikyu = {
+  1: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2001//01%20The%20End%20and%20the%20Beginning.mp4",
+  2: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2002//02%20Karasuno%20High%20School%20Volleyball%20Club.mp4",
+  3: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2003//03%20The%20Formidable%20Ally.mp4",
+  4: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2004//04%20The%20View%20From%20the%20Summit.mp4",
+  5: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2005//05%20A%20Coward%27s%20Anxiety.mp4",
+  6: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2006//06%20An%20Interesting%20Team.mp4",
+  7: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2007//07%20Versus%20the%20Great%20King.mp4"
+};
 var shows = {
   haikyu:{title:"Haikyu!!",episodes:25,seasons:4},
   tbate:{title:"The Beginning After the End",episodes:12,seasons:1},
