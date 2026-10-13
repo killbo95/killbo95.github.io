@@ -15,14 +15,40 @@
    Example format: haikyu: { 1: "https://provider.example/embed/episode-id" }
    Use the provider's official embed URL, not a regular watch-page link.
    Leave an episode out until you have permission to embed it. */
-var episodeSources = {
-  haikyu: { 1: "https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%2001//01%20The%20End%20and%20the%20Beginning.mp4" },
-  tbate: {},
-  hellmode: {},
-  mob: {},
-  littlewitch: {},
-  planetes: {}
-};
+var haikyuEpisodeTitles = [
+  "The End and the Beginning",
+  "Karasuno High School Volleyball Club",
+  "The Formidable Ally",
+  "The View from the Summit",
+  "A Coward's Anxiety",
+  "An Interesting Team",
+  "Versus the Great King",
+  'He Who is Called "Ace"',
+  "A Toss to the Ace",
+  "Yearning",
+  "Decision",
+  "The Neko-Karasu Reunion",
+  "Rival",
+  "Formidable Opponents",
+  "Revival",
+  "Winners and Losers",
+  "The Iron Wall",
+  "Guarding Your Back",
+  "Conductors",
+  "Oikawa Toru is Not a Genius",
+  "Senpai's True Abilities",
+  "Evolution",
+  "The Point that Changes the Momentum",
+  "Removing the Solitary King",
+  "The Third Day"
+];
+var episodeSources = { haikyu: {}, tbate: {}, hellmode: {}, mob: {}, littlewitch: {}, planetes: {} };
+// Candidate URLs follow the same folder/filename pattern as the Episode 1 URL provided.
+// Only Episode 1 has been confirmed; the remaining generated URLs must be tested.
+haikyuEpisodeTitles.forEach(function(title,index){
+  var n=String(index+1).padStart(2,"0");
+  episodeSources.haikyu[index+1]="https://www.cartoonsarea.cc/USER-DATA/Cartoonsarea/Japines%20Language/H/Haikyuu/Season%201/Episode%20"+n+"//"+n+"%20"+encodeURIComponent(title).replace(/'/g,"%27")+".mp4";
+});
 var shows = {
   haikyu:{title:"Haikyu!!",episodes:25,seasons:4},
   tbate:{title:"The Beginning After the End",episodes:12,seasons:1},
