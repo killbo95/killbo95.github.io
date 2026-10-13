@@ -42,7 +42,13 @@ document.getElementById("crumbEpisode").textContent="Episode "+episode;
 var url=(episodeSources[id]||{})[episode];
 var player=document.getElementById("player");
 if(typeof url==="string" && /^https:\/\//i.test(url) && url.indexOf("example.")===-1){
-  var frame=document.createElement("iframe");frame.src=url;frame.title=show.title+" episode "+episode;frame.allow="autoplay; fullscreen; picture-in-picture";frame.allowFullscreen=true;frame.referrerPolicy="strict-origin-when-cross-origin";player.replaceChildren(frame);
+  if (/\.mp4(?:$|[?#])/i.test(url)) {
+    var video=document.createElement("video");video.src=url;video.controls=true;video.playsInline=true;video.preload="metadata";video.style.width="100%";video.style.height="100%";video.style.objectFit="contain";video.title=show.title+" episode "+episode;
+    video.addEventListener("error",function(){player.innerHTML='<div class="empty"><h2>Video could not load</h2><p>The source may block direct playback or require a different authorized embed URL.</p><a class="pill" href="'+url.replace(/&/g,"&amp;")+'" target="_blank" rel="noopener">Open video source</a></div>';});
+    player.replaceChildren(video);
+  } else {
+    var frame=document.createElement("iframe");frame.src=url;frame.title=show.title+" episode "+episode;frame.allow="autoplay; fullscreen; picture-in-picture";frame.allowFullscreen=true;frame.referrerPolicy="strict-origin-when-cross-origin";player.replaceChildren(frame);
+  }
 }
 var list=document.getElementById("episodes");
 for(var i=1;i<=show.episodes;i++){var a=document.createElement("a");a.className="ep"+(i===episode?" active":"");a.href="?show="+encodeURIComponent(id)+"&episode="+i;a.setAttribute("aria-current",i===episode?"page":"false");a.innerHTML="Episode "+i+"<small>"+(((episodeSources[id]||{})[i])?"Player available":"Source not added")+"</small>";list.appendChild(a)}
